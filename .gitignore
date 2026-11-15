@@ -5,3 +5,8 @@ scene.svg
 sheet.png
 sheet_preview.png
 soft_preview.png
+# Local preview browser profiles and iteration backups
+tools/
+edge-profile/
+*.before-*
+*.tmp

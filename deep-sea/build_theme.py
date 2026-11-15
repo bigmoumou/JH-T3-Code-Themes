@@ -583,15 +583,15 @@ main{flex:1;display:flex;min-width:0;height:100vh}.shell{flex:1;display:flex;ove
 background:color-mix(in oklab,#0a2b45 var(--glass-opacity,80%),transparent);backdrop-filter:blur(var(--glass-blur,16px)) saturate(var(--glass-saturation,1.08))}
 </style><style>__CSS__</style></head><body>
 <div data-slot="sidebar-wrapper" style="--sidebar-width:256px"><div data-slot="sidebar"><div data-slot="sidebar-container"><div data-slot="sidebar-inner" class="bg">
-<div data-thread-item class="on">深海主題</div><div data-thread-item>範例對話 A</div><div data-thread-item>範例對話 B</div>
-<div data-thread-item>範例對話 C</div><div data-thread-item>範例對話 D</div></div></div></div>
+<div data-thread-item class="on">Deep Sea</div><div data-thread-item>Scene notes</div><div data-thread-item>Pixel workshop</div>
+<div data-thread-item>Evening session</div><div data-thread-item>Theme library</div></div></div></div>
 <main data-slot="sidebar-inset" class="bg"><div class="shell bg"><div data-chat-column class="bg">
-<header data-chat-header class="bg">範例專案 / 深海主題</header>
+<header data-chat-header class="bg">Demo workspace / Deep Sea</header>
 <div style="flex:1;display:flex;min-height:0"><div data-workspace-area="conversation" class="bg"><div data-chat-canvas>
 <div class="messages-timeline-scroll bg"><div class="col">
-<div data-user-message-bubble>把主題換成深海。</div>
-<div class="chat-markdown"><p>已換成深海主題，海裡分成三層。</p>
-<ul><li><b>上層：</b>沙丁魚群、海龜、小水母。</li><li><b>中層：</b>倒吊魚三隻一組、蝴蝶魚成對。</li><li><b>下層：</b>巨型水母、燈籠魚，小丑魚守在海葵旁。</li></ul>
+<div data-user-message-bubble>Take this workspace beneath the surface.</div>
+<div class="chat-markdown"><p>Three layers of life, one calm workspace.</p>
+<ul><li><b>Upper water:</b> schooling sardines, sea turtles and small jellyfish.</li><li><b>Midwater:</b> blue tangs in groups and butterflyfish in pairs.</li><li><b>Seafloor:</b> giant jellyfish, lanternfish and clownfish beside glowing reefs.</li></ul>
 <div class="chat-markdown-codeblock">t3 theme set deep-sea</div></div>
 </div></div>
 <div data-chat-composer-overlay><div data-slot="composer-host">Ask anything. @ files, $ skills, / commands</div></div>
@@ -605,7 +605,7 @@ def main():
     problems = check(css)
     theme = {
         "version": 1,
-        "name": "深海 Deep Sea",
+        "name": "Deep Sea",
         "appearance": "dark",
         "canvas": "#06192b",
         "accent": "#4fd6d0",

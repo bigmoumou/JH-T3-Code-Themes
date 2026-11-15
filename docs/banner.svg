@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="360" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
+  <title id="title">JH T3 Code Themes</title>
+  <desc id="desc">Dive deep. Wander north. Deep Sea and Frozen Tundra, two animated pixel-art worlds.</desc>
+  <defs>
+    <linearGradient id="canvas" x2="1" y2="1"><stop stop-color="#041b2b"/><stop offset=".5" stop-color="#0a1930"/><stop offset="1" stop-color="#181c48"/></linearGradient>
+    <radialGradient id="sea"><stop stop-color="#168f9c" stop-opacity=".3"/><stop offset="1" stop-color="#168f9c" stop-opacity="0"/></radialGradient>
+    <radialGradient id="north"><stop stop-color="#73a9ff" stop-opacity=".24"/><stop offset="1" stop-color="#73a9ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ink"><stop stop-color="#e8fffb"/><stop offset="1" stop-color="#b8c7ff"/></linearGradient>
+  </defs>
+  <rect width="1600" height="360" rx="22" fill="url(#canvas)"/>
+  <ellipse cx="230" cy="290" rx="490" ry="300" fill="url(#sea)"/>
+  <ellipse cx="1390" cy="80" rx="450" ry="310" fill="url(#north)"/>
+  <g fill="#6bded4" opacity=".24">
+    <rect x="85" y="240" width="6" height="6"/><rect x="145" y="174" width="4" height="4"/>
+    <rect x="212" y="278" width="5" height="5"/><rect x="276" y="122" width="4" height="4"/>
+    <rect x="350" y="310" width="4" height="4"/><rect x="75" y="116" width="3" height="3"/>
+  </g>
+  <g fill="#c0ceff" opacity=".5">
+    <rect x="1295" y="60" width="4" height="4"/><rect x="1450" y="112" width="5" height="5"/>
+    <rect x="1360" y="230" width="3" height="3"/><rect x="1530" y="212" width="4" height="4"/>
+    <path d="M1230 180h4v-4h4v4h4v4h-4v4h-4v-4h-4z"/>
+  </g>
+  <g fill="#49cabf" opacity=".22">
+    <path d="M0 330h30v-12h27v-11h22v-16h18v29h24v17h32v23H0z"/>
+    <path d="M180 360v-52h9v-21h9v-29h10v31h10v-17h9v39h10v49z"/>
+    <path d="M265 360v-28h17v-16h14v-12h13v26h15v-43h12v73z"/>
+  </g>
+  <g fill="#819ee8" opacity=".22">
+    <path d="M1260 360v-19h29v-18h25v-16h28v-17h25v-17h23v32h22v20h31v35z"/>
+    <path d="M1417 360l24-46h-12l25-42h-11l24-42 24 42h-11l25 42h-12l24 46z"/>
+    <path d="M1522 360l18-34h-9l20-35h-9l20-33 20 33h-9l20 35h-9l16 34z"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif" text-anchor="middle">
+    <text x="800" y="83" fill="#91b0cc" font-size="15" font-weight="600" letter-spacing="5">ANIMATED PIXEL-ART WORLDS</text>
+    <text x="800" y="162" fill="url(#ink)" font-size="66" font-weight="700" letter-spacing="-2">JH T3 Code Themes</text>
+    <text x="800" y="209" fill="#bed0e6" font-size="25">Dive deep. Wander north.</text>
+    <rect x="579" y="253" width="202" height="43" rx="21" fill="#102e3e" stroke="#398f99" stroke-opacity=".7"/>
+    <text x="680" y="281" fill="#86e6db" font-size="17" font-weight="600">Deep Sea</text>
+    <rect x="801" y="253" width="220" height="43" rx="21" fill="#1a2548" stroke="#7689c7" stroke-opacity=".7"/>
+    <text x="911" y="281" fill="#c0d0ff" font-size="17" font-weight="600">Frozen Tundra</text>
+  </g>
+</svg>
