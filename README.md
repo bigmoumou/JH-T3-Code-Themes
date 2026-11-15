@@ -14,6 +14,12 @@
   <a href="#make-it-your-own">Source &amp; rebuilding</a>
 </p>
 
+<p align="center">
+  <a href="#deep-sea"><img src="deep-sea/preview.gif" alt="Watch Deep Sea: swimming fish and drifting jellyfish" width="420"></a>
+  <a href="#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Watch Frozen Tundra: swaying auroras, falling snow, and traveling companions" width="420"></a>
+  <br><em>Watch the worlds move. Select a preview to explore its theme.</em>
+</p>
+
 ## Choose your world
 
 | | Deep Sea | Frozen Tundra |
@@ -28,27 +34,27 @@
 
 **A reef that keeps living while you work.**
 
-[![Deep Sea: fish, turtles, jellyfish, and a glowing pixel-art reef behind an English demo conversation](deep-sea/preview.png)](deep-sea/preview.png)
+[![Deep Sea in motion: fish, turtles, jellyfish, and a glowing pixel-art reef behind an English demo conversation](deep-sea/preview.gif)](deep-sea/preview.gif)
 
 - **Life at every depth.** Sardines near the surface, tangs and butterflyfish in midwater, and luminous jellyfish closer to the floor.
 - **A breathing seabed.** Clownfish, coral, swaying kelp, glowing stones, and drifting plankton fill the edges.
 - **Room for your work.** The scenery follows the chat column, with foreground detail gathered beside the frosted composer.
 
-**[Download Deep Sea](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json)** · [Explore the source](deep-sea/)
+**[Download Deep Sea](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json)** · [Explore the source](deep-sea/) · [High-resolution still](deep-sea/preview.png)
 
 ## Frozen Tundra
 
 **Cold skies. Warm company.**
 
-[![Frozen Tundra: auroras, snow, luminous ice lakes, a white dog and snow leopard cub, and an igloo beside a campfire](frozen-tundra/preview.png)](frozen-tundra/preview.png)
+[![Frozen Tundra in motion: auroras, snow, luminous ice lakes, a white dog and snow leopard cub, and an igloo beside a campfire](frozen-tundra/preview.gif)](frozen-tundra/preview.gif)
 
 - **A sky in motion.** Two swaying aurora curtains, occasional shooting stars, and three layers of drifting snow.
 - **An enchanted snowfield.** Three glowing ice lakes, blue crystals, luminous grass, floating snow spirits, and faint lights behind distant firs.
 - **Two traveling companions.** A white dog and a snow leopard cub wander between the crystals and the campfire in a 96-second cycle, pausing to sit, howl, and play.
 
-**[Download Frozen Tundra](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json)** · [Explore the source](frozen-tundra/)
+**[Download Frozen Tundra](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json)** · [Explore the source](frozen-tundra/) · [High-resolution still](frozen-tundra/preview.png)
 
-*Previews are offline mock-ups of the T3 layout with synthetic English conversations, not captures of private sessions. Open an image for the full-size view; the installed themes are animated.*
+*The looping GIFs show 14 seconds of Deep Sea and 24 seconds of Frozen Tundra. They are recordings of offline T3-layout mock-ups with synthetic English conversations, not captures of private sessions. Open a GIF for the larger animated view, or use the still-image links for more detail.*
 
 ## Installation
 
@@ -117,7 +123,8 @@ The custom theme files can stay in place for later use.
 | `art.py` | Draws pixel-art sprites and soft lighting layers. |
 | `build_theme.py` | Packs the artwork and builds the SVG/CSS animation. |
 | `theme.json` | Ready-to-install theme with embedded artwork. |
-| `preview.png` | English demonstration image shown above. |
+| `preview.gif` | Looping animated demonstration shown above. |
+| `preview.png` | High-resolution English demonstration still. |
 
 Rebuilding requires Python 3, NumPy, and Pillow with WebP support:
 
