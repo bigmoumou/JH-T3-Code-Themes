@@ -58,7 +58,7 @@
 
 **Firelight on the water. Secrets on the horizon.**
 
-[![Corsair Cove in motion: red-sailed pirate ships, cannon fire, moonlit waves, a skull island, and an old harbor](corsair-cove/preview.gif)](corsair-cove/preview.gif)
+<a href="corsair-cove/preview.gif"><img src="corsair-cove/preview.gif" alt="Corsair Cove in motion: red-sailed pirate ships, cannon fire, moonlit waves, a skull island, and an old harbor" width="880"></a>
 
 - **A battle on the open sea.** A red-sailed carrack fires two shots, 0.6 seconds apart; splashes rise beside the distant trader before it returns fire. Wreckage drifts nearby and a shark patrols below.
 - **An old harbor, alive with light.** A lantern boat bobs on the waves, a tavern flickers, and a timber fire-basket beacon casts warm light over the water. An open treasure chest waits on the jetty.
