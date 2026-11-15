@@ -1,0 +1,7 @@
+__pycache__/
+# written by build_theme.py and art.py next to theme.json
+mock.html
+scene.svg
+sheet.png
+sheet_preview.png
+soft_preview.png
