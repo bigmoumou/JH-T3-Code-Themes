@@ -10,15 +10,18 @@
 <p align="center">
   <a href="#deep-sea">Deep Sea</a> ·
   <a href="#frozen-tundra">Frozen Tundra</a> ·
-  <a href="#corsair-cove">Corsair Cove</a> ?
+  <a href="#corsair-cove">Corsair Cove</a> ·
+  <a href="#rainy-cafe">Rainy Cafe</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#make-it-your-own">Source &amp; rebuilding</a>
 </p>
 
 <p align="center">
-  <a href="#deep-sea"><img src="deep-sea/preview.gif" alt="Watch Deep Sea: swimming fish and drifting jellyfish" width="280"></a>
-  <a href="#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Watch Frozen Tundra: swaying auroras, falling snow, and traveling companions" width="280"></a>
-  <a href="#corsair-cove"><img src="corsair-cove/preview.gif" alt="Watch Corsair Cove: cannon fire, burning driftwood and a lantern-lit harbor" width="280"></a>
+  <a href="#deep-sea"><img src="deep-sea/preview.gif" alt="Watch Deep Sea: swimming fish and drifting jellyfish" width="420"></a>
+  <a href="#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Watch Frozen Tundra: swaying auroras, falling snow, and traveling companions" width="420"></a>
+  <br>
+  <a href="#corsair-cove"><img src="corsair-cove/preview.gif" alt="Watch Corsair Cove: cannon fire, burning driftwood and a lantern-lit harbor" width="420"></a>
+  <a href="#rainy-cafe"><img src="rainy-cafe/preview.gif" alt="Watch Rainy Cafe: falling rain, window droplets, a cat, a Java sparrow and steaming coffee" width="420"></a>
   <br><em>Watch the worlds move. Select a preview to explore its theme.</em>
 </p>
 
@@ -29,6 +32,7 @@
 | **[Deep Sea](#deep-sea)** | A living underwater reef | Swimming fish and drifting jellyfish | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) |
 | **[Frozen Tundra](#frozen-tundra)** | A luminous winter night | Auroras, snow, and animal companions | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) |
 | **[Corsair Cove](#corsair-cove)** | An old pirate harbor after dark | Cannon fire, drifting flames, and rolling waves | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json) |
+| **[Rainy Cafe](#rainy-cafe)** | A Japanese cafe on a rainy night | Window droplets, little companions, and rising coffee steam | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json) |
 
 ## Deep Sea
 
@@ -65,9 +69,21 @@
 - **An old harbor, alive with light.** A lantern boat bobs on the waves, a tavern flickers, and a timber fire-basket beacon casts warm light over the water. An open treasure chest waits on the jetty.
 - **Mystery beyond the mist.** A fire-eyed skull island, a passing ghost ship, distant coastal lights, layered swells, and occasional whitecaps complete the night.
 
-**[Download Corsair Cove](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json)** ? [Explore the source](corsair-cove/) ? [High-resolution still](corsair-cove/preview.png)
+**[Download Corsair Cove](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json)** · [Explore the source](corsair-cove/) · [High-resolution still](corsair-cove/preview.png)
 
-*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 14 seconds of Deep Sea, 24 seconds of Frozen Tundra, and 32 seconds of Corsair Cove. They are recordings of offline T3-layout mock-ups with synthetic English conversations, not captures of private sessions. Open a GIF for the larger animated view, or use the still-image links for more detail.*
+## Rainy Cafe
+
+**Rain outside. A quiet corner inside.**
+
+<a href="rainy-cafe/preview.gif"><img src="rainy-cafe/preview.gif" alt="Rainy Cafe in motion: rain on the window, warm Japanese woodwork, a sleepy cat, a white Java sparrow, a leaf-hat frog, and steaming coffee" width="880"></a>
+
+- **Rain on both sides of the glass.** Three layers of slanted rain cross the street outside, while beads splash onto the pane and slide down in little starts and stops.
+- **A warm place to settle.** Japanese woodwork, pendant lights, books and a glowing radio frame the counter. Three wisps of steam rise from a large blue-and-white coffee mug.
+- **Little companions.** An orange-and-white cat naps, watches the rain and visits the radio. A white Java sparrow flies over and hops to greet it; a leaf-hat frog occasionally climbs the window. The cat and bird share a 96-second cycle, with the frog appearing every second cycle.
+
+**[Download Rainy Cafe](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json)** · [Explore the source](rainy-cafe/) · [High-resolution still](rainy-cafe/preview.png)
+
+*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 14 seconds of Deep Sea, 24 seconds of Frozen Tundra, 32 seconds of Corsair Cove, and a 32-second excerpt of Rainy Cafe beginning 20 seconds into its companion cycle. They are recordings of offline T3-layout mock-ups with synthetic English conversations, not captures of private sessions. Open a GIF for the larger animated view, or use the still-image links for more detail.*
 
 ## Installation
 
@@ -87,6 +103,11 @@ Follow the repository's installation instructions and keep its CSS unchanged.
 
 ```text
 Install the corsair-cove theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
+Follow the repository's installation instructions and keep its CSS unchanged.
+```
+
+```text
+Install the rainy-cafe theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
 Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
@@ -112,6 +133,8 @@ Follow the repository's installation instructions and keep its CSS unchanged.
    t3 theme set frozen-tundra
    # or
    t3 theme set corsair-cove
+   # or
+   t3 theme set rainy-cafe
    ```
 
 5. Without activation tools, select the published theme under **Settings → Appearance** and choose dark appearance. Ask the user to confirm the result; publishing a theme is not a visual inspection.
@@ -150,7 +173,7 @@ Rebuilding requires Python 3, NumPy, and Pillow with WebP support:
 
 ```sh
 python -m pip install numpy pillow
-cd corsair-cove   # or: cd deep-sea / cd frozen-tundra
+cd rainy-cafe   # or: cd deep-sea / cd frozen-tundra / cd corsair-cove
 python build_theme.py
 ```
 
@@ -161,6 +184,7 @@ The builder also writes `scene.svg`, `sheet.png`, and `mock.html` for local insp
 | Deep Sea | 19,964 characters | 20,000 | 36 |
 | Frozen Tundra | 19,961 characters | 20,000 | 39 |
 | Corsair Cove | 19,944 characters | 20,000 | 56 |
+| Rainy Cafe | 19,461 characters | 20,000 | 539 |
 
 Different Pillow/WebP versions can change the encoded size. Recheck the budget after rebuilding; the published JSON files are the reference artifacts.
 

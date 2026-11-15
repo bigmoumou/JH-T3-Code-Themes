@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="360" viewBox="0 0 1600 360" role="img" aria-labelledby="title desc">
   <title id="title">JH T3 Code Themes</title>
-  <desc id="desc">Dark worlds. Cute details. Room to unwind. Deep Sea, Frozen Tundra and Corsair Cove: a growing collection of dark, cute, animated pixel-art worlds.</desc>
+  <desc id="desc">Dark worlds. Cute details. Room to unwind. Deep Sea, Frozen Tundra, Corsair Cove and Rainy Cafe: a growing collection of dark, cute, animated pixel-art worlds.</desc>
   <defs>
     <linearGradient id="canvas" x2="1" y2="1"><stop stop-color="#041b2b"/><stop offset=".5" stop-color="#0a1930"/><stop offset="1" stop-color="#181c48"/></linearGradient>
     <radialGradient id="sea"><stop stop-color="#168f9c" stop-opacity=".3"/><stop offset="1" stop-color="#168f9c" stop-opacity="0"/></radialGradient>
@@ -34,11 +34,13 @@
     <text x="800" y="83" fill="#91b0cc" font-size="15" font-weight="600" letter-spacing="5">ANIMATED PIXEL-ART WORLDS</text>
     <text x="800" y="162" fill="url(#ink)" font-size="66" font-weight="700" letter-spacing="-2">JH T3 Code Themes</text>
     <text x="800" y="209" fill="#bed0e6" font-size="25">Dark worlds. Cute details. Room to unwind.</text>
-    <rect x="450" y="253" width="200" height="43" rx="21" fill="#102e3e" stroke="#398f99"/>
-    <text x="550" y="281" fill="#86e6db" font-size="17" font-weight="600">Deep Sea</text>
-    <rect x="690" y="253" width="200" height="43" rx="21" fill="#1a2548" stroke="#7689c7"/>
-    <text x="790" y="281" fill="#c0d0ff" font-size="17" font-weight="600">Frozen Tundra</text>
-    <rect x="930" y="253" width="200" height="43" rx="21" fill="#352735" stroke="#ad854d"/>
-    <text x="1030" y="281" fill="#efc680" font-size="17" font-weight="600">Corsair Cove</text>
+    <rect x="340" y="253" width="200" height="43" rx="21" fill="#102e3e" stroke="#398f99"/>
+    <text x="440" y="281" fill="#86e6db" font-size="17" font-weight="600">Deep Sea</text>
+    <rect x="580" y="253" width="200" height="43" rx="21" fill="#1a2548" stroke="#7689c7"/>
+    <text x="680" y="281" fill="#c0d0ff" font-size="17" font-weight="600">Frozen Tundra</text>
+    <rect x="820" y="253" width="200" height="43" rx="21" fill="#352735" stroke="#ad854d"/>
+    <text x="920" y="281" fill="#efc680" font-size="17" font-weight="600">Corsair Cove</text>
+    <rect x="1060" y="253" width="200" height="43" rx="21" fill="#3b282c" stroke="#bc875d"/>
+    <text x="1160" y="281" fill="#f5c99a" font-size="17" font-weight="600">Rainy Cafe</text>
   </g>
 </svg>
