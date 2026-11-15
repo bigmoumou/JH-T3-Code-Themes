@@ -22,7 +22,7 @@
 | **Companions** | Fish, turtles, and jellyfish | A white dog, a snow leopard cub, and snow spirits |
 | **Light** | Sunbeams, plankton, and golden stones | Ice-blue crystals and a warm campfire |
 | **Theme ID** | `deep-sea` | `frozen-tundra` |
-| **Get the theme** | [Download JSON](https://raw.githubusercontent.com/bigmoumou/T3-Code-Themes/main/deep-sea/theme.json) | [Download JSON](https://raw.githubusercontent.com/bigmoumou/T3-Code-Themes/main/frozen-tundra/theme.json) |
+| **Get the theme** | [Download JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) | [Download JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) |
 
 ## Deep Sea
 
@@ -34,7 +34,7 @@
 - **A breathing seabed.** Clownfish, coral, swaying kelp, glowing stones, and drifting plankton fill the edges.
 - **Room for your work.** The scenery follows the chat column, with foreground detail gathered beside the frosted composer.
 
-**[Download Deep Sea](https://raw.githubusercontent.com/bigmoumou/T3-Code-Themes/main/deep-sea/theme.json)** · [Explore the source](deep-sea/)
+**[Download Deep Sea](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json)** · [Explore the source](deep-sea/)
 
 ## Frozen Tundra
 
@@ -46,7 +46,7 @@
 - **An enchanted snowfield.** Three glowing ice lakes, blue crystals, luminous grass, floating snow spirits, and faint lights behind distant firs.
 - **Two traveling companions.** A white dog and a snow leopard cub wander between the crystals and the campfire in a 96-second cycle, pausing to sit, howl, and play.
 
-**[Download Frozen Tundra](https://raw.githubusercontent.com/bigmoumou/T3-Code-Themes/main/frozen-tundra/theme.json)** · [Explore the source](frozen-tundra/)
+**[Download Frozen Tundra](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json)** · [Explore the source](frozen-tundra/)
 
 *Previews are offline mock-ups of the T3 layout with synthetic English conversations, not captures of private sessions. Open an image for the full-size view; the installed themes are animated.*
 
@@ -57,12 +57,12 @@
 Paste either request into a **Full access** thread on the machine serving your T3 environment:
 
 ```text
-Install the deep-sea theme from https://github.com/bigmoumou/T3-Code-Themes.
+Install the deep-sea theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
 Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
 ```text
-Install the frozen-tundra theme from https://github.com/bigmoumou/T3-Code-Themes.
+Install the frozen-tundra theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
 Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
