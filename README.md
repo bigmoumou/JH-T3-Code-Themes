@@ -1,4 +1,4 @@
-# T3 Code Themes
+# JH T3 Code Themes
 
 Animated pixel-art themes for T3 Code (desktop and web). Every picture is drawn by code; there are no third-party assets.
 
