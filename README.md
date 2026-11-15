@@ -34,7 +34,7 @@
 
 **A reef that keeps living while you work.**
 
-[![Deep Sea in motion: fish, turtles, jellyfish, and a glowing pixel-art reef behind an English demo conversation](deep-sea/preview.gif)](deep-sea/preview.gif)
+<a href="deep-sea/preview.gif"><img src="deep-sea/preview.gif" alt="Deep Sea in motion: fish, turtles, jellyfish, and a glowing pixel-art reef behind an English demo conversation" width="880"></a>
 
 - **Life at every depth.** Sardines near the surface, tangs and butterflyfish in midwater, and luminous jellyfish closer to the floor.
 - **A breathing seabed.** Clownfish, coral, swaying kelp, glowing stones, and drifting plankton fill the edges.
@@ -46,7 +46,7 @@
 
 **Cold skies. Warm company.**
 
-[![Frozen Tundra in motion: auroras, snow, luminous ice lakes, a white dog and snow leopard cub, and an igloo beside a campfire](frozen-tundra/preview.gif)](frozen-tundra/preview.gif)
+<a href="frozen-tundra/preview.gif"><img src="frozen-tundra/preview.gif" alt="Frozen Tundra in motion: auroras, snow, luminous ice lakes, a white dog and snow leopard cub, and an igloo beside a campfire" width="880"></a>
 
 - **A sky in motion.** Two swaying aurora curtains, occasional shooting stars, and three layers of drifting snow.
 - **An enchanted snowfield.** Three glowing ice lakes, blue crystals, luminous grass, floating snow spirits, and faint lights behind distant firs.
@@ -66,7 +66,7 @@
 
 **[Download Corsair Cove](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json)** ? [Explore the source](corsair-cove/) ? [High-resolution still](corsair-cove/preview.png)
 
-*The looping GIFs show 14 seconds of Deep Sea, 24 seconds of Frozen Tundra, and 32 seconds of Corsair Cove. They are recordings of offline T3-layout mock-ups with synthetic English conversations, not captures of private sessions. Open a GIF for the larger animated view, or use the still-image links for more detail.*
+*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 14 seconds of Deep Sea, 24 seconds of Frozen Tundra, and 32 seconds of Corsair Cove. They are recordings of offline T3-layout mock-ups with synthetic English conversations, not captures of private sessions. Open a GIF for the larger animated view, or use the still-image links for more detail.*
 
 ## Installation
 
