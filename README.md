@@ -18,7 +18,7 @@
 <p align="center">
   <a href="#deep-sea"><img src="deep-sea/preview.gif" alt="Watch Deep Sea: swimming fish and drifting jellyfish" width="280"></a>
   <a href="#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Watch Frozen Tundra: swaying auroras, falling snow, and traveling companions" width="280"></a>
-  <a href="#corsair-cove"><img src="corsair-cove/preview.gif" alt="Watch Corsair Cove: cannon fire, moonlit waves and a lantern-lit harbor" width="280"></a>
+  <a href="#corsair-cove"><img src="corsair-cove/preview.gif" alt="Watch Corsair Cove: cannon fire, burning driftwood and a lantern-lit harbor" width="280"></a>
   <br><em>Watch the worlds move. Select a preview to explore its theme.</em>
 </p>
 
@@ -28,7 +28,7 @@
 | :-- | :-- | :-- | :-- |
 | **[Deep Sea](#deep-sea)** | A living underwater reef | Swimming fish and drifting jellyfish | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) |
 | **[Frozen Tundra](#frozen-tundra)** | A luminous winter night | Auroras, snow, and animal companions | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) |
-| **[Corsair Cove](#corsair-cove)** | An old pirate harbor after dark | Cannon fire, rolling waves, and flickering lanterns | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json) |
+| **[Corsair Cove](#corsair-cove)** | An old pirate harbor after dark | Cannon fire, drifting flames, and rolling waves | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json) |
 
 ## Deep Sea
 
@@ -58,9 +58,10 @@
 
 **Firelight on the water. Secrets on the horizon.**
 
-<a href="corsair-cove/preview.gif"><img src="corsair-cove/preview.gif" alt="Corsair Cove in motion: red-sailed pirate ships, cannon fire, moonlit waves, a skull island, and an old harbor" width="880"></a>
+<a href="corsair-cove/preview.gif"><img src="corsair-cove/preview.gif" alt="Corsair Cove in motion: red-sailed pirate ships, cannon fire, burning driftwood, wooden barrels, a skull island, and an old harbor" width="880"></a>
 
 - **A battle on the open sea.** A red-sailed carrack fires two shots, 0.6 seconds apart; splashes rise beside the distant trader before it returns fire. Wreckage drifts nearby and a shark patrols below.
+- **Firelight adrift.** Four burning planks and two wooden barrels drift across the right-hand sea. Each piece bobs at its own pace, with flickering firelight and reflections on the water.
 - **An old harbor, alive with light.** A lantern boat bobs on the waves, a tavern flickers, and a timber fire-basket beacon casts warm light over the water. An open treasure chest waits on the jetty.
 - **Mystery beyond the mist.** A fire-eyed skull island, a passing ghost ship, distant coastal lights, layered swells, and occasional whitecaps complete the night.
 
@@ -159,7 +160,7 @@ The builder also writes `scene.svg`, `sheet.png`, and `mock.html` for local insp
 | :-- | --: | --: | --: |
 | Deep Sea | 19,964 characters | 20,000 | 36 |
 | Frozen Tundra | 19,961 characters | 20,000 | 39 |
-| Corsair Cove | 19,940 characters | 20,000 | 60 |
+| Corsair Cove | 19,944 characters | 20,000 | 56 |
 
 Different Pillow/WebP versions can change the encoded size. Recheck the budget after rebuilding; the published JSON files are the reference artifacts.
 

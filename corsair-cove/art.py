@@ -722,6 +722,55 @@ def flotsam(w=40, h=13):
     return img
 
 
+def cask(w=16, h=10):
+    """A barrel adrift on its side, its head toward a fire on its left: the head and the staves next to it are warm,
+    the far end is in the dark with a rim of moonlight along its top. Two iron hoops, which bow like the round
+    ends; the lower third is under water. (Mirrored in the scene when the fire is on its right.)"""
+    x, y = grid(w, h)
+    img = blank(w, h)
+    x0, ln, cy, r0, g = 3., 12., 4.9, 3.6, 7.2             # where the staves begin, their length, the axis, the radius at the ends, the waterline
+    hx, hrx = 2.7, 2.6                                     # the head: its middle and how wide it looks from here
+    bow = hrx * np.sqrt(np.clip(1 - ((y - cy) / r0) ** 2, 0, 1))
+    rad = r0 + 1.2 * np.sin(np.pi * np.clip((x - x0) / ln, 0, 1))
+    body = (x >= x0) & (x <= x0 + ln - hrx + bow) & (np.abs(y - cy) <= rad)
+    top = body & (y - (cy - rad) < 1)
+    L = np.where(top, .9, .6 - .3 * (y - cy) / rad - .1 * (np.floor(y + .5) % 2 == 0))
+    level = np.where(x <= 5, 2, np.where(x <= 9.5, 1, 0))
+    img[body, :3] = lit(R["wood"], R["woodw"], np.clip(L, .05, .95), level)[body]
+    img[body, 3] = 255
+    put(img, top & (level == 0), (70, 82, 122))
+    for hp in (.3, .7):
+        put(img, body & ~top & (np.abs(x - x0 - hp * ln - (bow - hrx) * .45) <= .5), R["iron"][2])
+    head = ell(x, y, hx, cy, hrx, r0 + .2)
+    rim = head & ~ell(x, y, hx + .3, cy, hrx - 1.05, r0 - .85)
+    img[head, :3] = lit(R["wood"], R["woodw"], np.where(rim, .72, .46 - .14 * (np.abs(y - cy) < .5)), np.full(x.shape, 2))[head]
+    img[head, 3] = 255
+    solid = img[..., 3] > 0
+    img[solid & (y > g + 1)] = 0
+    wet = solid & (y > g) & (y <= g + 1)
+    put(img, wet, R["wood"][0], 120)
+    put(img, wet & (hash2(np.floor(x), 1, 5) > .35), FOAM, 120)
+    return img
+
+
+def plank():
+    """A ship's plank adrift and still burning: its near end, broken off and riding a little higher, is cold; the
+    rest is lit by its own fire, with embers along it, and charred black at the far end. (The flame, its light and
+    its reflection are added in the scene.)"""
+    rows = (
+        ".dd.............",
+        "dccdssttsttsr...",
+        "cbbqrEsrrEEsqqp.",
+        "aaappqpqqpqpppkk",
+        ".f.fFf.ff.fFf.f.",
+    )
+    cold, warm = R["wood"], R["woodw"]
+    key = {"a": cold[1], "b": cold[2], "c": cold[3], "d": cold[4],
+           "p": warm[0], "q": warm[1], "r": warm[2], "s": warm[3], "t": warm[4],
+           "E": R["fire"][2], "k": INK, "f": (*FOAM, 120), "F": (*FOAM, 175)}
+    return pix(rows, key)
+
+
 def fin():
     """A shark's fin cutting the water, toward the right."""
     rows = (
@@ -863,29 +912,33 @@ def reduce_palette(a, k=48, iters=24):
 
 
 PITCH = 64        # animated sprites: frames sit this far apart, starting at x = 0
-COLW = 388        # width of the part of the sheet that holds the still sprites
+COLW = 192        # width of the part of the sheet that holds the still sprites
 
 
 def sprites():
+    """The sprites in the order they are laid out on the sheet (tools/pack.py searches it: the order decides how well
+    the sheet compresses)."""
     anim = [
         ("Fi", flames(16, 18, 3, ((4.6, (9, 7, 10), 2.6), (11.4, (8, 11, 7), 2.6), (8, (17, 15, 16), 3.8)))),
-        ("Fs", flames(7, 9, 3, ((3.5, (8, 6.5, 8.5), 2.4),))),
+        ("Rb", rowboat(30, 17, 3)),
         ("Fl", flag(11, 8, 3)),
         ("Rf", reflect(9, 24, 3)),
-        ("Rb", rowboat(30, 17, 3)),
+        ("Fs", flames(7, 9, 3, ((3.5, (8, 6.5, 8.5), 2.4),))),
     ]
     stat = [
-        ("Pt", port()),
-        ("Sp", ship(PIRATE)),
         ("St", ship(TRADER)),
-        ("Sk", skull_isle()),
-        ("Gp", path(64, 104, 11, (246, 251, 255), (150, 190, 240))),
         ("Mo", moon(28)),
-        ("Fw", flotsam()),
-        ("Fn", fin()),
+        ("Sp", ship(PIRATE)),
+        ("Gp", path(64, 104, 11, (246, 251, 255), (150, 190, 240))),
         ("Wn", water(192, 56, 28, 4, 36, 5, (70, 112, 170), .5)),
         ("Wf", water(192, 26, 38, 2, 9, 3, (56, 96, 150))),
+        ("Bl", cask()),
+        ("Fw", flotsam()),
+        ("Pk", plank()),
+        ("Fn", fin()),
+        ("Pt", port()),
         ("Sw", swell(192, 15)),
+        ("Sk", skull_isle()),
     ]
     return anim, stat
 

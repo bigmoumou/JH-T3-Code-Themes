@@ -20,9 +20,13 @@ The picture ( the open sea on the left, the shore with the old port on the right
               the moon's path on the water runs down from under the moon past it
               middle, farthest off: the skull island, a rock like a great skull with a fire burning in each eye,
               mist round its foot; a pale green ghost ship drifts toward it now and then and fades
-              right: open water, and a distant coastline with six faint town lights
+              right: a far shore, out of focus, with the lights of a town
     sea       faint streaks of light of every length, in patches, in layers that drift at different speeds; along
               the bottom edge two rows of swell, no two crests alike, the rowing boat between them
+              right, between the far shore and the port: what is left of a ship, adrift in a trail from the upper
+              right to the lower left. Four planks still burn (two of them together), each with its flame, its
+              light, a pool of that light on the water and its reflection; beside them two barrels on their
+              sides, lit on the side that faces the fire. Each piece rides the swell at its own pace
     floor     left: the pirates' carrack, near: dark red sails, fire baskets and lit windows on its sterncastle,
               lanterns at the main top and in the bow; a shark's fin cruising under it; wreckage afloat in the corner
               right: the shore with the old port, wood on a little stone: a jetty on piles with the hoard (an open
@@ -32,8 +36,8 @@ The picture ( the open sea on the left, the shore with the old port on the right
               basket and the black flag at its rail
               a rowing boat with a lantern carries loot from the ship to the jetty and goes back (behind the
               message box). Before it sets out the watchman shows his green light twice and the ship answers.
-  Every 29 s the pirates fire twice, 0.6 seconds apart (flashes and drifting smoke); two splashes rise by the trader, and later the
-  trader fires back; then it is quiet again.
+  Every 29 s the pirates fire twice, 0.6 seconds apart (flashes and drifting smoke); two splashes rise by the trader,
+  and later the trader fires back; then it is quiet again.
 
 What carries over from the earlier themes
   Everything that must be seen sits within SIDE art pixels of an edge, because the reading column and the frosted
@@ -51,6 +55,7 @@ import json
 import pathlib
 import random
 import re
+import string
 
 import art
 
@@ -66,6 +71,7 @@ SWELL = 705              # y of the nearest water in the floor's frame
 SHIP = 636               # y of the pirate ship's waterline
 SHORE = 708              # y of the waterline at the port
 BOAT = 108               # seconds for the rowing boat's round
+SIG = BOAT / 2           # ... and for the signal lights: they are shown once before each crossing
 GUN = 29                 # seconds between the pirates' shots
 MOON = (112, 82)         # the middle of the moon
 
@@ -92,60 +98,63 @@ def pc(seconds, of):
 
 STYLE = (
     # the window, which the scene follows: one art pixel is --u CSS px, the column is --w art pixels wide and --h
-    # high, and --l is how far the floor's 720-pixel frame must move down for its bottom to meet the column's
+    # high
     "svg{--e:ease-in-out infinite alternate;--u:2;--H:100vh;"
-    f"--w:calc(100vw/var(--u));--h:calc(var(--H)/var(--u));--l:calc(var(--h) - {H}px)}}"
+    "--w:calc(100vw/var(--u));--h:calc(var(--H)/var(--u))}"
     f"@media (height>{FLAG - 1000}px){{svg{{--u:1.6;--H:calc(100vh - {FLAG}px)}}}}"
-    # everything is drawn in art pixels, inside groups of this class
-    ".S{transform:scale(var(--u))}"
-    # tied to the floor, to the horizon, to the right edge, and to the middle
-    f".F{{translate:0 var(--l)}}.Z{{translate:0 calc(var(--h)*{n(HORIZON)})}}.R{{translate:var(--w)}}.C{{translate:calc(var(--w)/2)}}"
+    # everything is drawn in art pixels, inside the group of this class. (--q, where in its cycle an animation
+    # starts, is 0 unless an element says otherwise)
+    ".S{scale:var(--u);--q:0s}"
+    # tied to the floor (its 720-pixel frame moves down until its bottom meets the column's), to the horizon, to the
+    # right edge, and to the middle
+    f".F{{translate:0 calc(var(--h) - {H}px)}}.Z{{translate:0 calc(var(--h)*{n(HORIZON)})}}.R{{translate:var(--w)}}.C{{translate:calc(var(--w)/2)}}"
     # frame animation: slide the sheet behind the sprite's window, back and forth over three frames. Animated sprites
     # are in the sheet's first column, so the <use> that shows the sheet through their window is the one without an x
-    "[href='#s']:not([x]){animation:r var(--p,.45s) var(--q,0s) steps(3,jump-none) infinite alternate}"
-    f"@keyframes r{{to{{transform:translateX(-{art.PITCH * 2}px)}}}}"
+    "[href='#s']:not([x]){animation:r var(--p,.29s) var(--q) steps(3,jump-none) infinite alternate}"
+    f"@keyframes r{{to{{translate:-{art.PITCH * 2}px}}}}"
     ".m{scale:-1 1}"
     # the water drifts: every layer of it slides by one tile and starts again, which does not show; the layers go at
     # different speeds, so that the streaks of one pass those of another and the pattern never stands still
-    f".w{{animation:w var(--t,50s) linear infinite,v var(--b,7s) var(--e)}}@keyframes w{{to{{translate:-{TILE}px}}}}"
+    f".w{{animation:w var(--t) linear infinite,v var(--b,7s) var(--e)}}@keyframes w{{to{{translate:-{TILE}px}}}}"
     # ... and every layer also rises and falls a little, each at its own pace (--b): the sea heaves
-    "@keyframes v{from{transform:translateY(-1.5px)}to{transform:translateY(1.5px)}}"
+    "@keyframes v{to{transform:translateY(3px)}}"
     # breathing light, over --b seconds
-    ".g{animation:g var(--b,4.6s) var(--q,0s) var(--e)}@keyframes g{from{opacity:.5}}"
+    ".g{animation:g var(--b,4.6s) var(--q) var(--e)}@keyframes g{from{opacity:.5}}"
     # what floats rides the swell (the same rise and fall)
     ".b{animation:v var(--b,5.7s) var(--e)}"
-    # fire light flickers: unevenly, and never far down
-    ".x{animation:x var(--b,1.9s) var(--q,0s) infinite}@keyframes x{0%,to{opacity:1}17%{opacity:.75}36%{opacity:.95}55%{opacity:.7}78%{opacity:.9}}"
+    # fire light flickers: unevenly, and never far down. (Its pace is --f, not --b: a fire that floats has both)
+    ".x{animation:x var(--f,1.9s) var(--q) infinite}@keyframes x{17%{opacity:.75}36%{opacity:.95}55%{opacity:.7}78%{opacity:.9}}"
     # a whitecap far off: it comes up, stays a moment and is gone
-    ".o{animation:o 9s var(--q,0s) infinite}@keyframes o{0%,30%,to{opacity:0}12%{opacity:.9}}"
+    ".o{animation:o 9s var(--q) infinite}@keyframes o{0%,30%,to{opacity:0}12%{opacity:.9}}"
     # a gun goes off: a flash, then a puff of smoke that drifts off down the wind, spreads and thins. (Also the
     # splash of a shot, with a later start.)
-    f".k{{animation:k {GUN}s var(--q,0s) infinite}}@keyframes k{{0%,2%,to{{opacity:0}}.4%{{opacity:1}}}}"
-    f".j{{animation:j {GUN}s var(--q,0s) infinite}}"
-    "@keyframes j{0%{opacity:0;transform:none}1%{opacity:.9}17%,to{opacity:0;transform:translate(12px,-22px) scale(2.8)}}"
+    f".k{{animation:k {GUN}s var(--q) infinite}}@keyframes k{{0%,2%,to{{opacity:0}}.4%{{opacity:1}}}}"
+    f".j{{animation:j {GUN}s var(--q) infinite}}"
+    "@keyframes j{0%{opacity:0}1%{opacity:.9}17%,to{opacity:0;transform:translate(12px,-22px) scale(2.8)}}"
     # smoke leans to and fro
     ".a{animation:a 9s var(--e)}@keyframes a{from{transform:skewX(-10deg)}to{transform:skewX(-24deg)}}"
     # the hoard glints
-    ".t{animation:t 5s var(--q,0s) infinite}@keyframes t{0%,14%,to{opacity:0}7%{opacity:1}}"
+    ".t{animation:t 5s var(--q) infinite}@keyframes t{0%,14%,to{opacity:0}7%{opacity:1}}"
     # the ghost ship comes out of the fog, drifts left to the skull island and fades
-    "#gs{animation:gs 148s linear infinite}@keyframes gs{0%{opacity:0}9%,44%{opacity:.85}56%,to{translate:-280px;opacity:0}}"
-    # the rowing boat: moored by the ship, across to the jetty, moored there, and back; it turns round at the jetty.
-    # The shark's fin cruises to and fro under the ship in the same way
-    f"#rb{{animation:rb {BOAT}s linear infinite}}#rv{{animation:rv {BOAT}s steps(1) infinite}}"
-    f"@keyframes rb{{0%,{pc(20, BOAT)}{{translate:136px}}50%,{pc(74, BOAT)}{{translate:calc(var(--w) - 180px)}}to{{translate:136px}}}}"
-    "@keyframes rv{60%{scale:-1 1}}"
-    "#fn{animation:fn 47s ease-in-out infinite}#fv{animation:rv 47s steps(1) infinite}@keyframes fn{0%,to{translate:26px}60%{translate:150px}}"
+    "#gs{animation:h 148s linear infinite}@keyframes h{0%{opacity:0}9%,44%{opacity:.85}56%,to{translate:-280px;opacity:0}}"
+    # the rowing boat: moored by the ship, across to the jetty, moored there, and back; it turns round at the jetty
+    # and rides the swell. (Three animations on one element: they move it, mirror it and lift it, which are separate
+    # properties.) The shark's fin cruises to and fro under the ship in the same way
+    f"#rb{{animation:c {BOAT}s linear infinite,m {BOAT}s steps(1) infinite,v 2.9s var(--e)}}"
+    f"@keyframes c{{0%,{pc(20, BOAT)},to{{translate:136px}}50%,{pc(74, BOAT)}{{translate:calc(var(--w) - 180px)}}}}"
+    "@keyframes m{60%{scale:-1 1}}"
+    "#fn{animation:f 47s ease-in-out infinite,m 47s steps(1) infinite}@keyframes f{0%,to{translate:26px}60%{translate:150px}}"
     # signals before the boat sets out from either side: the watchman shows his green light twice, and the ship
-    # answers in the same way 2.4 s later (the same rule, started later)
-    f".y{{animation:y {BOAT}s var(--q,0s) infinite}}"
-    f"@keyframes y{{0%,{pc(14.2, BOAT)},{pc(15.4, BOAT)},{pc(16.6, BOAT)},{pc(68.2, BOAT)},{pc(69.4, BOAT)},{pc(70.6, BOAT)},to{{opacity:0}}"
-    f"{pc(14.8, BOAT)},{pc(16, BOAT)},{pc(68.8, BOAT)},{pc(70, BOAT)}{{opacity:1}}}}"
+    # answers in the same way 2.4 s later (the same rule, started later). The boat sets out every half round, so
+    # the signals' cycle is half the boat's
+    f".y{{animation:y {n(SIG)}s var(--q) infinite}}"
+    f"@keyframes y{{0%,{pc(14.2, SIG)},{pc(15.4, SIG)},{pc(16.6, SIG)},to{{opacity:0}}{pc(14.8, SIG)},{pc(16, SIG)}{{opacity:1}}}}"
 )
 
-# seconds per sweep of an animated sprite's three frames (the rest use the default in the rule)
-PERIOD = {"Fi": .33, "Fs": .29, "Fl": .48, "Rf": .85, "Rb": .65}
+# seconds per sweep of an animated sprite's three frames (the small flame uses the default in the rule, .29)
+PERIOD = {"Fi": .33, "Fl": .48, "Rf": .85, "Rb": .65}
 # sprites that appear once in the scene: they need no definition of their own (see Scene.once)
-ONCE = {"Sp", "St", "Sk", "Pt", "Mo", "Fw", "Fn", "Rb", "Fi"}
+ONCE = {"Sp", "St", "Sk", "Pt", "Mo", "Fw", "Fn", "Rb", "Fi", "Pk"}
 
 
 class Scene:
@@ -153,7 +162,7 @@ class Scene:
         (cs, self.cc), (ss, self.sc) = art.build()
         self.cs = art.reduce_palette(cs, COLOURS)
         self.crisp = webp(art.to_img(self.cs))
-        self.soft = webp(art.to_img(ss))
+        self.blurred = webp(art.to_img(ss))
         self.sheet_size = (cs.shape[1], cs.shape[0])
         self.soft_size = (ss.shape[1], ss.shape[0])
 
@@ -172,6 +181,17 @@ class Scene:
         per = f" style='--p:{n(PERIOD[name])}s'" if name in PERIOD else ""
         at = (f" x='{n(x)}'" if x else "") + (f" y='{n(y)}'" if y else "")
         return f"<svg{at} width='{w}' height='{h}'><use href='#s'{pos}{per}/></svg>"
+
+    @staticmethod
+    def put(ref, x, y, extra=""):
+        return (f"<use href='#{ref}'{extra} x='{n(x)}' y='{n(y)}'/>").replace(" x='0'", "").replace(" y='0'", "")
+
+    def soft(self, ref, cx, cy, kx, ky=None, extra=""):
+        """A soft image, enlarged kx by ky times and centred on (cx, cy)."""
+        ky = kx if ky is None else ky
+        w, h = self.sc[ref][2], self.sc[ref][3]
+        k = f"scale({n(kx)})" if kx == ky else f"scale({n(kx)} {n(ky)})"
+        return f"<use href='#{ref}'{extra} transform='translate({n(cx - w * kx / 2)} {n(cy - h * ky / 2)}){k}'/>"
 
     @staticmethod
     def specks(pts, attrs, unit=10, ch="."):
@@ -197,7 +217,7 @@ class Scene:
         sw, sh = self.soft_size
         p = ["<defs>",
              f"<image id='s' width='{cw}' height='{ch}' style='image-rendering:pixelated' href='data:image/webp;base64,{base64.b64encode(self.crisp).decode()}'/>",
-             f"<image id='b' width='{sw}' height='{sh}' href='data:image/webp;base64,{base64.b64encode(self.soft).decode()}'/>"]
+             f"<image id='b' width='{sw}' height='{sh}' href='data:image/webp;base64,{base64.b64encode(self.blurred).decode()}'/>"]
         for name in self.cc:
             if name not in ONCE:
                 p.append(self.window(name, self.cc, "s"))
@@ -206,6 +226,15 @@ class Scene:
         # discs of light, centred: warm, and the pale green one
         for i, ref, k in (("w5", "wg", 5), ("t3", "tl", 3)):
             p.append(f"<use id='{i}' href='#{ref}' transform='translate({-6 * k} {-6 * k})scale({k})'/>")
+        # a small fire: a flame and its flickering light (in the skull's eyes, in the trader's stern)
+        p.append("<g id='fk'><use href='#Fs'/>" + self.soft("wg", 3.5, 9, 2.6, extra=" class='x'") + "</g>")
+        # a plank adrift and still burning: the fire's reflection, its light (behind the plank, so that the plank
+        # shows against it), the plank, the flame
+        p.append("<g id='bp'>" + self.put("Rf", 3, 4) + self.soft("wg", 7.5, 4.5, 6, 1.5, " opacity='.4'")
+                 + self.soft("wg", 7.5, 0, 3.6, extra=" class='x'") + self.once("Pk")
+                 + self.put("Fs", 4, -8) + "</g>")
+        # four tiles of fog side by side
+        p.append("<g id='mi'>" + "".join(self.put("fg", i * self.sc["fg"][2], 0) for i in range(4)) + "</g>")
         # rows of water
         p.append(self.row("wf", "Wf", TILE) + self.row("wn", "Wn", TILE) + self.row("sw", "Sw", TILE))
         # stars, in the top 200 pixels
@@ -219,23 +248,18 @@ class Scene:
         cc, sc = self.cc, self.sc
         self.parts = parts = {}
 
-        def put(ref, x, y, extra=""):
-            return (f"<use href='#{ref}'{extra} x='{n(x)}' y='{n(y)}'/>").replace(" x='0'", "").replace(" y='0'", "")
-
-        def soft(ref, cx, cy, kx, ky=None, extra=""):
-            """A soft image, enlarged kx by ky times and centred on (cx, cy)."""
-            ky = kx if ky is None else ky
-            w, h = sc[ref][2], sc[ref][3]
-            k = f"scale({n(kx)})" if kx == ky else f"scale({n(kx)} {n(ky)})"
-            return f"<use href='#{ref}'{extra} transform='translate({n(cx - w * kx / 2)} {n(cy - h * ky / 2)}){k}'/>"
+        put, soft = self.put, self.soft
 
         def gun(x, y, start, size=2.):
             """A gun at (x, y) that goes off `start` seconds into the cycle: its flash and its smoke."""
             q = f" style='--q:-{n(GUN - start)}s'" if start else ""
-            return (f"<g transform='translate({n(x)} {n(y)})'>" + put("w5", 0, 0, " class='k'" + q)
-                    + f"<g class='j'{q}>" + soft("sm", 0, 0, size) + "</g></g>")
+            return (f"<g transform='translate({n(x)} {n(y)})'{q}>" + put("w5", 0, 0, " class='k'")
+                    + "<g class='j'>" + soft("sm", 0, 0, size) + "</g></g>")
 
-        mist = "".join(put("fg", i * sc["fg"][2], 0) for i in range(4))      # four tiles of fog side by side
+
+        def mist(t, where):
+            """A band of mist or thin cloud: the row of fog, enlarged, sliding like the water."""
+            return f"<g class='w' style='--t:{t}s'><use href='#mi' transform='{where}'/></g>"
         # ---- the sky: stars twinkling in two sets, the moon in its halo, and a band of thin cloud drifting across it
         # (the fog's tile, enlarged: a row of it, sliding like the water)
         MX, MY = MOON
@@ -244,7 +268,7 @@ class Scene:
             "<use href='#st' class='g' fill='#cfe0ff' font-size='1.3'/>"
             f"<use href='#st' class='g m' style='--b:7s' fill='#9fb8ff' font-size='1' x='-{W - 30}' y='9'/>"
             + soft("ml", MX, MY, 8.5) + soft("ml", MX, MY, 3.6) + self.once("Mo", MX - md // 2, MY - md // 2)
-            + "<g class='w' style='--t:260s'><g transform='translate(-60 58)scale(8 7)'>" + mist + "</g></g>")
+            + mist(260, "translate(-60 58)scale(8 7)"))
 
         # ---- the horizon, behind the water's glints. In the middle, farthest off, the skull island: a flame and a
         # breathing light in each eye, their reflections on the water; the ghost ship drifts toward it from the
@@ -257,15 +281,15 @@ class Scene:
             "<g class='Z'><g class='C'>"
             + "<g id='gs'>" + soft("tl", 310, 9, 6, 2) + soft("gh", 310, -17, 3.2) + "</g>"
             + self.once("Sk", -sk["cx"], 4 + sk["wet"] - sk["h"])
-            + "".join(put("Fs", sg * ex - 3.5, -1 - eg - 4, q) + soft("wg", sg * ex, 4 - eg, 2.6, extra=f" class='x' style='--b:{b}s'")
-                      + put("Rf", sg * ex - 4.5, 6, q)
-                      for sg, q, b in ((-1, "", 1.7), (1, " style='--q:-.3s'", 2.3)))
+            + "".join(put("fk", sg * ex - 3.5, -1 - eg - 4, f" style='--f:{f}s{q and ';' + q}'")
+                      + put("Rf", sg * ex - 4.5, 6, q and f" style='{q}'")
+                      for sg, q, f in ((-1, "", 1.7), (1, "--q:-.3s", 2.3)))
             + "</g>"
             # on the right the far shore, out of focus, and the lights of a town on it
             + "<g class='R'>" + soft("co", -102, -17, 4.4, 3.6)
             + self.specks(town, " class='g' style='--b:5.3s' fill='#ffbe44' font-size='3.2'", 4) + "</g>"
-            + "<g class='w' style='--t:178s'><g transform='translate(-40 -15)scale(8 5)'>" + mist + "</g></g>"
-            "</g>")
+            + mist(178, "translate(-40 -15)scale(8 5)")
+            + "</g>")
 
         # ---- the water: layers of faint streaks, far ones short and slow, near ones longer and quicker, and between
         # them the same tiles mirrored and going at another speed, so that the pattern keeps changing; then the
@@ -278,32 +302,50 @@ class Scene:
             """Whitecaps: a few short pale dashes somewhere between x0 and x1, all coming up together."""
             pts = [(round(rnd.uniform(x0, x1) / 4, 1), round(rnd.uniform(36, 150) / 4, 1)) for _ in range(4)]
             return self.specks(pts, " class='o'" + (f" style='--q:-{q}s'" if q else ""), 4, "-")
+
+        # ---- adrift on the open water at the right, between the far shore and the port: what is left of a ship that
+        # lost its fight. Planks that still burn, each with its flame, its light and its reflection, and barrels
+        # beside them, lit on the side that faces the fire (the barrel is painted with the fire on its left, so it
+        # is mirrored when the fire is on its right). Each piece rides the swell at its own pace. They are drawn
+        # after every layer of water and before the ships and the port
+        def adrift(ref, x, y, bob, mirror=False, more=""):
+            return put(ref, -x - cc["Bl"][2] if mirror else x, y, f" class='b{' m' if mirror else ''}' style='--b:{n(bob)}s{more}'")
+
+        def afire(x, y, bob, q=0., mirror=False):
+            """A burning plank whose left end is at x; q: where in their cycles its flame and its flicker start."""
+            return adrift("bp", x, y, bob, mirror, f";--q:{n(q)}s" if q else "")
+        assert cc["Pk"][2] == cc["Bl"][2]
+        # (a trail from the upper right to the lower left; what lies right of the port's hill stays high, so that
+        # in a low window it does not run into the beacon)
+        drift = (adrift("Bl", -142, 100, 3.6) + adrift("Bl", -118, 63, 4.7, True)
+                 + afire(-40, 40, 5.1, -1.) + afire(-172, 102, 4.4) + afire(-162, 104, 3.9, -.6, True)
+                 + afire(-96, 66, 4.9, -1.4))
         parts["water"] = (
+            "<g class='F'><g class='w' style='--t:61s;--b:5.3s'>" + put("wn", -31, 500) + put("wn", 0, 556) + put("wn", -47, 612) + put("wn", -17, 660)
+            + "</g><g class='w' style='--t:97s;--b:9.1s'>" + put("wn", -back, 528, " class='m'") + put("wn", -back + 20, 636, " class='m'")
+            + "</g></g>"
             "<g class='Z'><g class='w' style='--t:170s'>" + put("wf", 0, 2) + put("wf", -53, 26)
             + "</g><g class='w' style='--t:110s;--b:8.3s'>" + put("wn", -23, 50) + put("wn", -61, 104)
             + "</g><g class='w' style='--t:163s;--b:6.1s'>" + put("wn", -back, 77, " class='m'")
             + "</g>" + put("Gp", MX - gw // 2, 1, " class='g' style='--b:2.3s'")
-            + f"<g transform='translate({MX} 3)'>" + put("Gp", -gw // 2, 0, " class='g m' style='--b:3.1s;--q:-1s'") + "</g>"
-            + "<g fill='#cfe0f5' font-size='3'>" + caps(8, 168, 0) + "<g class='R'>" + caps(-168, -8, 4.5) + "</g></g></g>"
-            "<g class='F'><g class='w' style='--t:61s;--b:5.3s'>" + put("wn", -31, 500) + put("wn", 0, 556) + put("wn", -47, 612) + put("wn", -17, 660)
-            + "</g><g class='w' style='--t:97s;--b:9.1s'>" + put("wn", -back, 528, " class='m'") + put("wn", -back + 20, 636, " class='m'")
-            + "</g></g>")
+            + put("Gp", -gw // 2, 0, f" class='g m' style='--b:3.1s;--q:-1s;translate:{MX}px 3px'")
+            + "<g fill='#cfe0f5' font-size='3'>" + caps(8, 168, 0) + "<g class='R'>" + caps(-168, -8, 4.5) + drift + "</g></g></g>")
 
         # ---- the trader the pirates are fighting: far off under the moon, bow to the left (mirrored about its own
         # right edge), its masts against the sky. A fire has caught in its stern, with smoke; the pirates' two shots
         # fall beside it, and 11.5 s after their first gun it fires back
         twl = art.TRADER["wl"]
         parts["trader"] = (
-            f"<g class='Z'><g transform='translate(176 {22 - twl})'><g class='b' style='--b:4.3s'><g class='m'>"
+            # (one element is moved, mirrored and lifted by the swell: three separate properties)
+            f"<g class='Z'><g class='b m' style='--b:4.3s;translate:176px {22 - twl}px'>"
             + "<g class='a' style='transform-origin:8px 30px'>" + soft("sm", 8, 6, 1.8, 5) + "</g>"
-            + self.once("St") + put("Fs", 5, 26) + put("Fs", 10, 30, " style='--q:-.2s'")
-            + soft("wg", 9, 34, 2.6, extra=" class='x'")
+            + self.once("St") + put("Fs", 10, 30, " style='--q:-.2s'") + put("fk", 5, 26)
             + put("Rf", 4, twl + 1)
             # two shots fall beside it, 1.8 and 2.4 s after the pirates' first gun
             + soft("ml", 38, twl - 7, 1.3, 2.6, " class='k' style='--q:-" + n(GUN - 1.8) + "s'")
             + soft("ml", 54, twl - 3, 1, 1.9, " class='k' style='--q:-" + n(GUN - 2.4) + "s'")
             + gun(40, 47, 11.5, 1.5)
-            + "</g></g></g></g>")
+            + "</g></g>")
 
         # ---- the floor
         # left, the open sea: the pirates' carrack, riding the swell: the black flag at the main top, one wide soft
@@ -315,10 +357,10 @@ class Scene:
         lamps = [(ox + lx, wl - lh_) for lx, lh_, kind in ps["lamps"] if kind == "l"]     # at the main top and in the bow
         fwh = cc["Fw"][3]
         left = (
-            f"<g transform='translate(22 {SHIP - wl})'><g class='b'>"
+            f"<g class='b' style='translate:22px {SHIP - wl}px'>"
             # (the wide light lies behind the ship, so that it shows round the sterncastle and does not wash out
             # the windows; a small one lies over them)
-            + soft("wg", ox + 15, wl - 33, 6.2, 4.2, " class='x' style='--b:2.7s'")
+            + soft("wg", ox + 15, wl - 33, 6.2, 4.2, " class='x' style='--f:2.7s'")
             + self.once("Sp") + put("Fl", ox + 53, wl - 96)
             + soft("wg", ox + 16, wl - 24, 2.2, 1.4)
             + "".join(put("wg", x - 6, y - 6) for x, y in lamps)
@@ -326,9 +368,9 @@ class Scene:
             + put("Rf", ox + 4, wl + 1) + put("Rf", ox + 14, wl + 1) + put("Rf", ox + 23, wl + 2)
             + put("Rf", ox + 93, wl + 1)
             + gun(ox + 97, wl - 26, 0) + put("w5", ox + 85, wl - 24, f" class='k' style='--q:-{n(GUN - .6)}s'")
-            + put("t3", ox + 100, wl - 28, f" class='y' style='--q:-{n(BOAT - 2.4)}s'")
-            + "</g></g>"
-            + "<g id='fn'><g id='fv'>" + self.once("Fn", -5, 668) + "</g></g>"
+            + put("t3", ox + 100, wl - 28, f" class='y' style='--q:-{n(SIG - 2.4)}s'")
+            + "</g>"
+            + "<g id='fn'>" + self.once("Fn", -5, 668) + "</g>"
             + "<g class='b'>" + self.once("Fw", 30, SWELL + 3 - fwh) + "</g>")
         # right, the shore: the port, the black flag on its pole, smoke from the chimney, light at the tavern's
         # windows and door and at the jetty's lantern (with its reflection), the gold's light and three glints, the
@@ -346,24 +388,41 @@ class Scene:
                  + soft("sm", *at("smoke", 0, -15), 1.5, 4) + "</g>"
                  + self.once("Pt", -pw, SHORE - pt["wl"]) + put("Fl", *at("flag"))
                  + self.once("Fi", *at("fire", -8, -18)) + soft("wg", *at("fire", 0, -7), 8, 6.4, " class='x'")
-                 + soft("wg", *at("win"), 4.6, 2.2, " class='x' style='--b:2.9s'") + put("wg", *at("door", -6, -6))
+                 + soft("wg", *at("win"), 4.6, 2.2, " class='x' style='--f:2.9s'") + put("wg", *at("door", -6, -6))
                  + soft("wg", cx_, cy_ - 1, 4, 2.8, " class='g'")
-                 + "".join(f"<text class='t' style='--q:-{q}s' x='{n(cx_ + dx)}' y='{n(cy_ + dy)}' font-size='7' fill='#fff7b8'>+</text>"
-                           for dx, dy, q in ((-9, -1, 0), (4, 4, 1.7), (-2, -4, 3.4)))
+                 + "<g font-size='7' fill='#fff7b8'>"
+                 + "".join(f"<text class='t'{st} x='{n(cx_ + dx)}' y='{n(cy_ + dy)}'>+</text>"
+                           for dx, dy, st in ((-9, -1, ""), (4, 4, " style='--q:-1.7s'"), (-2, -4, " style='--q:-3.4s'")))
+                 + "</g>"
                  + put("t3", *at("man"), " class='y'")
                  + "</g>")
         # the nearest water: two rows of swell one behind the other, going at different speeds, and between them the
         # rowing boat with its lantern
         boat = (f"<g class='w' style='--t:41s;--b:4.7s'>" + put("sw", -57, SWELL - 6) + "</g>"
-                f"<g id='rb'><g id='rv'><g class='b' style='--b:2.9s'>" + self.once("Rb", -15, SWELL - 13) + soft("wg", 10, SWELL - 12, 2) + "</g></g></g>"
+                "<g id='rb'>" + self.once("Rb", -15, SWELL - 13) + soft("wg", 10, SWELL - 12, 2) + "</g>"
                 f"<g class='w' style='--t:23s;--b:3.7s'>" + put("sw", 0, SWELL) + "</g>"
                 # the beacon's and the tavern's light on the swell in front of the port
-                + "<g class='R'>" + soft("wg", -118, SWELL + 4, 12, 2, " opacity='.4'") + "</g>")
+                + soft("wg", -118, SWELL + 4, 12, 2, " class='R' opacity='.4'"))
         parts["floor"] = "<g class='F'>" + left + right + boat + "</g>"
 
         parts["defs"] = self.defs()
-        return ("<svg xmlns='http://www.w3.org/2000/svg'><style>" + STYLE + "</style>" + parts["defs"] + "<g class='S'>"
-                + "".join(parts[k] for k in ("sky", "horizon", "water", "trader", "floor")) + "</g></svg>")
+        return shorten("<svg xmlns='http://www.w3.org/2000/svg'><style>" + STYLE + "</style>" + parts["defs"] + "<g class='S'>"
+                       + "".join(parts[k] for k in ("sky", "horizon", "water", "trader", "floor")) + "</g></svg>")
+
+
+def shorten(svg):
+    """Every id becomes one letter. (The names in this file stay readable; the two sheets have one letter already.)
+    An id is written as id='..', referred to as href='#..', and addressed in the style as #..{ or #..,"""
+    ids = re.findall(r" id='([^']+)'", svg)
+    assert len(ids) == len(set(ids)), "an id is defined twice"
+    free = [c for c in string.ascii_letters if c not in ids]
+    for name in ids:
+        if len(name) > 1:
+            c = free.pop(0)
+            svg = svg.replace(f" id='{name}'", f" id='{c}'").replace(f"href='#{name}'", f"href='#{c}'")
+            svg = re.sub(rf"#{name}(?=[{{,])", "#" + c, svg)
+    assert not re.search(r"href='#[^']{2,}'", svg), "a reference to something that is not defined"
+    return svg
 
 
 def encode(svg):
@@ -454,7 +513,7 @@ background:color-mix(in oklab,#0d1730 var(--glass-opacity,80%),transparent);back
 <div class="messages-timeline-scroll bg"><div class="col">
 <div data-user-message-bubble>A moonlit pirate sea, an old wooden harbor, and a mysterious island beyond the mist.</div>
 <div class="chat-markdown"><p>Firelight on the water. Secrets on the horizon.</p>
-<ul><li><b>Open sea:</b> red sails, double cannon shots, drifting wreckage and a circling shark.</li><li><b>Far horizon:</b> a skull island, a ghost ship and faint coastal lights.</li><li><b>Old harbor:</b> a lantern boat, a treasure chest, a flickering tavern and a fire-basket beacon.</li></ul>
+<ul><li><b>Open sea:</b> red sails, cannon fire, burning driftwood, wooden barrels and a circling shark.</li><li><b>Far horizon:</b> a skull island, a ghost ship and faint coastal lights.</li><li><b>Old harbor:</b> a lantern boat, a treasure chest, a flickering tavern and a fire-basket beacon.</li></ul>
 <div class="chat-markdown-codeblock">t3 theme set corsair-cove</div></div>
 </div></div>
 <div data-chat-composer-overlay><div data-slot="composer-host">Ask anything. @ files, $ skills, / commands</div></div>
@@ -468,7 +527,7 @@ def main():
     problems = check(css)
     theme = {
         "version": 1,
-        "name": "Corsair Cove",
+        "name": "海盜夜灣 Corsair Cove",
         "appearance": "dark",
         "canvas": "#070d1c",
         "accent": "#f0b44c",
@@ -478,8 +537,8 @@ def main():
     (OUT / "theme.json").write_text(json.dumps(theme, ensure_ascii=False), encoding="utf-8")
     (OUT / "mock.html").write_text(MOCK.replace("__CSS__", css), encoding="utf-8")
     art.to_img(sc.cs).save(OUT / "sheet.png")
-    rasters = len(base64.b64encode(sc.crisp)) + len(base64.b64encode(sc.soft))
-    print(f"sheet {len(sc.crisp)} B, soft {len(sc.soft)} B ({rasters} chars), svg markup {len(svg) - rasters} (style {len(STYLE)}), "
+    rasters = len(base64.b64encode(sc.crisp)) + len(base64.b64encode(sc.blurred))
+    print(f"sheet {len(sc.crisp)} B, soft {len(sc.blurred)} B ({rasters} chars), svg markup {len(svg) - rasters} (style {len(STYLE)}), "
           f"ui css {len(css) - len(encode(svg))}, css {len(css)} / {LIMIT}")
     print("  " + ", ".join(f"{k} {len(v) - (rasters if k == 'defs' else 0)}" for k, v in sc.parts.items())
           + f", encoding adds {len(encode(svg)) - len(svg) - 19}")
