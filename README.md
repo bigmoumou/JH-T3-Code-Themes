@@ -225,7 +225,7 @@ After updating a theme, regenerate its demo from the published JSON and the Engl
 python build_gallery.py
 ```
 
-Commit the generated `demo/` pages with the theme. GitHub Pages publishes `main` from the repository root; `.nojekyll` keeps the site static. The gallery loads one live scene at a time, provides a still-image pause mode, and starts paused when the browser requests reduced motion. Its small JavaScript controller switches scenes; the artwork and motion remain the themes' original CSS.
+Commit the generated `demo/` pages with the theme. GitHub Pages publishes `main` from the repository root; `.nojekyll` keeps the site static. The gallery loads one live scene at a time and respects the browser's reduced-motion preference. Its small JavaScript controller switches scenes; the artwork and motion remain the themes' original CSS.
 
 
 ---
