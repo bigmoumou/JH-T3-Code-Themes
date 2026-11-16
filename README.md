@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/banner.svg" alt="JH T3 Code Themes — Dark worlds. Cute details. Room to unwind." width="100%">
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#corsair-cove"><img src="docs/banner.svg" alt="JH T3 Code Themes - Dark worlds. Cute details. Room to unwind." width="100%"></a>
 </p>
 
 <p align="center">
@@ -8,82 +8,103 @@
 </p>
 
 <p align="center">
-  <a href="#deep-sea">Deep Sea</a> ·
-  <a href="#frozen-tundra">Frozen Tundra</a> ·
   <a href="#corsair-cove">Corsair Cove</a> ·
+  <a href="#neon-alley">Neon Alley</a> ·
+  <a href="#frozen-tundra">Frozen Tundra</a> ·
+  <a href="#deep-sea">Deep Sea</a> ·
   <a href="#rainy-cafe">Rainy Cafe</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#make-it-your-own">Source &amp; rebuilding</a>
 </p>
 
 <p align="center">
-  <a href="#deep-sea"><img src="deep-sea/preview.gif" alt="Watch Deep Sea: swimming fish and drifting jellyfish" width="420"></a>
-  <a href="#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Watch Frozen Tundra: swaying auroras, falling snow, and traveling companions" width="420"></a>
+  <strong><a href="https://bigmoumou.github.io/JH-T3-Code-Themes/">Explore the live gallery →</a></strong><br>
+  <em>Select a picture to open its live scene, then switch between all five worlds.</em>
+</p>
+
+<p align="center">
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#corsair-cove"><img src="corsair-cove/preview.gif" alt="Explore Corsair Cove in the live gallery" width="420"></a>
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#neon-alley"><img src="neon-alley/preview.gif" alt="Explore Neon Alley in the live gallery" width="420"></a>
   <br>
-  <a href="#corsair-cove"><img src="corsair-cove/preview.gif" alt="Watch Corsair Cove: cannon fire, burning driftwood and a lantern-lit harbor" width="420"></a>
-  <a href="#rainy-cafe"><img src="rainy-cafe/preview.gif" alt="Watch Rainy Cafe: falling rain, window droplets, a cat, a Java sparrow and steaming coffee" width="420"></a>
-  <br><em>Watch the worlds move. Select a preview to explore its theme.</em>
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Explore Frozen Tundra in the live gallery" width="420"></a>
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#deep-sea"><img src="deep-sea/preview.gif" alt="Explore Deep Sea in the live gallery" width="420"></a>
+  <br>
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#rainy-cafe"><img src="rainy-cafe/preview.gif" alt="Explore Rainy Cafe in the live gallery" width="420"></a>
 </p>
 
 ## Choose your world
 
 | Theme | World | Signature motion | Download |
 | :-- | :-- | :-- | :-- |
-| **[Deep Sea](#deep-sea)** | A living underwater reef | Swimming fish and drifting jellyfish | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) |
-| **[Frozen Tundra](#frozen-tundra)** | A luminous winter night | Auroras, snow, and animal companions | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) |
 | **[Corsair Cove](#corsair-cove)** | An old pirate harbor after dark | Cannon fire, drifting flames, and rolling waves | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json) |
+| **[Neon Alley](#neon-alley)** | A sunless cyberpunk lane | Holographic koi, neon lights, and puddle ripples | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/neon-alley/theme.json) |
+| **[Frozen Tundra](#frozen-tundra)** | A luminous winter night | Auroras, snow, and animal companions | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) |
+| **[Deep Sea](#deep-sea)** | A living underwater reef | Swimming fish and drifting jellyfish | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) |
 | **[Rainy Cafe](#rainy-cafe)** | A Japanese cafe on a rainy night | Window droplets, little companions, and rising coffee steam | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json) |
-
-## Deep Sea
-
-**A reef that keeps living while you work.**
-
-<a href="deep-sea/preview.gif"><img src="deep-sea/preview.gif" alt="Deep Sea in motion: fish, turtles, jellyfish, and a glowing pixel-art reef behind an English demo conversation" width="880"></a>
-
-- **Life at every depth.** Sardines near the surface, tangs and butterflyfish in midwater, and luminous jellyfish closer to the floor.
-- **A breathing seabed.** Clownfish, coral, swaying kelp, glowing stones, and drifting plankton fill the edges.
-- **Room for your work.** The scenery follows the chat column, with foreground detail gathered beside the frosted composer.
-
-**[Download Deep Sea](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json)** · [Explore the source](deep-sea/) · [High-resolution still](deep-sea/preview.png)
-
-## Frozen Tundra
-
-**Cold skies. Warm company.**
-
-<a href="frozen-tundra/preview.gif"><img src="frozen-tundra/preview.gif" alt="Frozen Tundra in motion: auroras, snow, luminous ice lakes, a white dog and snow leopard cub, and an igloo beside a campfire" width="880"></a>
-
-- **A sky in motion.** Two swaying aurora curtains, occasional shooting stars, and three layers of drifting snow.
-- **An enchanted snowfield.** Three glowing ice lakes, blue crystals, luminous grass, floating snow spirits, and faint lights behind distant firs.
-- **Two traveling companions.** A white dog and a snow leopard cub wander between the crystals and the campfire in a 96-second cycle, pausing to sit, howl, and play.
-
-**[Download Frozen Tundra](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json)** · [Explore the source](frozen-tundra/) · [High-resolution still](frozen-tundra/preview.png)
 
 ## Corsair Cove
 
 **Firelight on the water. Secrets on the horizon.**
 
-<a href="corsair-cove/preview.gif"><img src="corsair-cove/preview.gif" alt="Corsair Cove in motion: red-sailed pirate ships, cannon fire, burning driftwood, wooden barrels, a skull island, and an old harbor" width="880"></a>
+<a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#corsair-cove"><img src="corsair-cove/preview.gif" alt="Corsair Cove in motion: red-sailed pirate ships, cannon fire, burning driftwood, wooden barrels, a skull island, and an old harbor" width="880"></a>
 
 - **A battle on the open sea.** A red-sailed carrack fires two shots, 0.6 seconds apart; splashes rise beside the distant trader before it returns fire. Wreckage drifts nearby and a shark patrols below.
 - **Firelight adrift.** Four burning planks and two wooden barrels drift across the right-hand sea. Each piece bobs at its own pace, with flickering firelight and reflections on the water.
 - **An old harbor, alive with light.** A lantern boat bobs on the waves, a tavern flickers, and a timber fire-basket beacon casts warm light over the water. An open treasure chest waits on the jetty.
 - **Mystery beyond the mist.** A fire-eyed skull island, a passing ghost ship, distant coastal lights, layered swells, and occasional whitecaps complete the night.
 
-**[Download Corsair Cove](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json)** · [Explore the source](corsair-cove/) · [High-resolution still](corsair-cove/preview.png)
+**[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#corsair-cove)** · [Download Corsair Cove](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/corsair-cove/theme.json) · [Source](corsair-cove/) · [GIF recording](corsair-cove/preview.gif) · [High-resolution still](corsair-cove/preview.png)
+
+## Neon Alley
+
+**Small wonders in a city that never sees the sun.**
+
+<a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#neon-alley"><img src="neon-alley/preview.gif" alt="Neon Alley in motion: cyan and pink holographic koi, stacked neon signs, rain, vending machines, puddle reflections and small creatures" width="880"></a>
+
+- **A city built in layers.** Lit apartment windows, a noodle billboard, an arcade alcove and a glowing pharmacy cross frame a dark lane. The right-hand vending machine stays pink.
+- **Light over wet pavement.** Three holographic koi swim in the air, including a pink fish with green fins. Puddles reflect the signs and shop fronts; air-conditioner drops land with a splash and a spreading ripple.
+- **Little stories at the edges.** A snail carrying glowing mushrooms reacts to a falling drop, while a gecko stalks a moth beside the pharmacy cross. Windows belonging to the same room flicker together.
+
+**[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#neon-alley)** · [Download Neon Alley](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/neon-alley/theme.json) · [Source](neon-alley/) · [GIF recording](neon-alley/preview.gif) · [High-resolution still](neon-alley/preview.png)
+
+
+## Frozen Tundra
+
+**Cold skies. Warm company.**
+
+<a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#frozen-tundra"><img src="frozen-tundra/preview.gif" alt="Frozen Tundra in motion: auroras, snow, luminous ice lakes, a white dog and snow leopard cub, and an igloo beside a campfire" width="880"></a>
+
+- **A sky in motion.** Two swaying aurora curtains, occasional shooting stars, and three layers of drifting snow.
+- **An enchanted snowfield.** Three glowing ice lakes, blue crystals, luminous grass, floating snow spirits, and faint lights behind distant firs.
+- **Two traveling companions.** A white dog and a snow leopard cub wander between the crystals and the campfire in a 96-second cycle, pausing to sit, howl, and play.
+
+**[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#frozen-tundra)** · [Download Frozen Tundra](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) · [Source](frozen-tundra/) · [GIF recording](frozen-tundra/preview.gif) · [High-resolution still](frozen-tundra/preview.png)
+
+## Deep Sea
+
+**A reef that keeps living while you work.**
+
+<a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#deep-sea"><img src="deep-sea/preview.gif" alt="Deep Sea in motion: fish, turtles, jellyfish, and a glowing pixel-art reef behind an English demo conversation" width="880"></a>
+
+- **Life at every depth.** Sardines near the surface, tangs and butterflyfish in midwater, and luminous jellyfish closer to the floor.
+- **A breathing seabed.** Clownfish, coral, swaying kelp, glowing stones, and drifting plankton fill the edges.
+- **Room for your work.** The scenery follows the chat column, with foreground detail gathered beside the frosted composer.
+
+**[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#deep-sea)** · [Download Deep Sea](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) · [Source](deep-sea/) · [GIF recording](deep-sea/preview.gif) · [High-resolution still](deep-sea/preview.png)
 
 ## Rainy Cafe
 
 **Rain outside. A quiet corner inside.**
 
-<a href="rainy-cafe/preview.gif"><img src="rainy-cafe/preview.gif" alt="Rainy Cafe in motion: rain on the window, warm Japanese woodwork, a sleepy cat, a white Java sparrow, a leaf-hat frog, and steaming coffee" width="880"></a>
+<a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#rainy-cafe"><img src="rainy-cafe/preview.gif" alt="Rainy Cafe in motion: rain on the window, warm Japanese woodwork, a sleepy cat, a white Java sparrow, a leaf-hat frog, and steaming coffee" width="880"></a>
 
 - **Rain on both sides of the glass.** Three layers of slanted rain cross the street outside, while beads splash onto the pane and slide down in little starts and stops.
 - **A warm place to settle.** Japanese woodwork, pendant lights, books and a glowing radio frame the counter. Three wisps of steam rise from a large blue-and-white coffee mug.
 - **Little companions.** An orange-and-white cat naps, watches the rain and visits the radio. A white Java sparrow flies over and hops to greet it; a leaf-hat frog occasionally climbs the window. The cat and bird share a 96-second cycle, with the frog appearing every second cycle.
 
-**[Download Rainy Cafe](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json)** · [Explore the source](rainy-cafe/) · [High-resolution still](rainy-cafe/preview.png)
+**[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#rainy-cafe)** · [Download Rainy Cafe](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json) · [Source](rainy-cafe/) · [GIF recording](rainy-cafe/preview.gif) · [High-resolution still](rainy-cafe/preview.png)
 
-*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 14 seconds of Deep Sea, 24 seconds of Frozen Tundra, 32 seconds of Corsair Cove, and a 32-second excerpt of Rainy Cafe beginning 20 seconds into its companion cycle. They are recordings of offline T3-layout mock-ups with synthetic English conversations, not captures of private sessions. Open a GIF for the larger animated view, or use the still-image links for more detail.*
+*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 32 seconds each of Corsair Cove and Neon Alley, 24 seconds of Frozen Tundra, 14 seconds of Deep Sea, and a 32-second excerpt of Rainy Cafe beginning 20 seconds into its companion cycle. They are recordings of offline T3-layout mock-ups with synthetic English conversations. Select any scene image for the live gallery; the GIF and still-image links remain available for recordings.*
 
 ## Installation
 
@@ -92,7 +113,12 @@
 Paste any request into a **Full access** thread on the machine serving your T3 environment:
 
 ```text
-Install the deep-sea theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
+Install the corsair-cove theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
+Follow the repository's installation instructions and keep its CSS unchanged.
+```
+
+```text
+Install the neon-alley theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
 Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
@@ -102,7 +128,7 @@ Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
 ```text
-Install the corsair-cove theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
+Install the deep-sea theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
 Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
@@ -128,11 +154,13 @@ Follow the repository's installation instructions and keep its CSS unchanged.
 4. Call `t3_theme_set` with the chosen `themeId` and `appearance: "dark"`. If the T3 CLI is available, use:
 
    ```sh
-   t3 theme set deep-sea
+   t3 theme set corsair-cove
+   # or
+   t3 theme set neon-alley
    # or
    t3 theme set frozen-tundra
    # or
-   t3 theme set corsair-cove
+   t3 theme set deep-sea
    # or
    t3 theme set rainy-cafe
    ```
@@ -173,7 +201,7 @@ Rebuilding requires Python 3, NumPy, and Pillow with WebP support:
 
 ```sh
 python -m pip install numpy pillow
-cd rainy-cafe   # or: cd deep-sea / cd frozen-tundra / cd corsair-cove
+cd neon-alley   # or: cd corsair-cove / cd frozen-tundra / cd deep-sea / cd rainy-cafe
 python build_theme.py
 ```
 
@@ -181,12 +209,24 @@ The builder also writes `scene.svg`, `sheet.png`, and `mock.html` for local insp
 
 | Theme | Published CSS length | T3 limit | Remaining |
 | :-- | --: | --: | --: |
-| Deep Sea | 19,964 characters | 20,000 | 36 |
-| Frozen Tundra | 19,961 characters | 20,000 | 39 |
 | Corsair Cove | 19,944 characters | 20,000 | 56 |
+| Neon Alley | 19,967 characters | 20,000 | 33 |
+| Frozen Tundra | 19,961 characters | 20,000 | 39 |
+| Deep Sea | 19,964 characters | 20,000 | 36 |
 | Rainy Cafe | 19,461 characters | 20,000 | 539 |
 
 Different Pillow/WebP versions can change the encoded size. Recheck the budget after rebuilding; the published JSON files are the reference artifacts.
+
+### Update the live gallery
+
+After updating a theme, regenerate its demo from the published JSON and the English mock:
+
+```sh
+python build_gallery.py
+```
+
+Commit the generated `demo/` pages with the theme. GitHub Pages publishes `main` from the repository root; `.nojekyll` keeps the site static. The gallery loads one live scene at a time, provides a still-image pause mode, and starts paused when the browser requests reduced motion. Its small JavaScript controller switches scenes; the artwork and motion remain the themes' original CSS.
+
 
 ---
 

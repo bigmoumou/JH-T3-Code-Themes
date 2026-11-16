@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Five animated pixel-art worlds for T3 Code. Explore a pirate harbor, a neon alley, a frozen tundra, an underwater reef and a rainy cafe.">
+  <title>Live gallery · JH T3 Code Themes</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root { color-scheme: dark; --accent: #f0b44c; font-family: "Segoe UI", Arial, sans-serif; background: #080d19; color: #edf1fa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .shell { max-width: 1648px; margin: 0 auto; padding: 28px 24px; }
+    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-size: 18px; font-weight: 650; letter-spacing: -.3px; text-decoration: none; }
+    .tagline { margin: 8px 0 0; color: #a4b1c8; font-size: 14px; line-height: 1.5; }
+    .repository { color: #b8c6dc; font-size: 14px; text-underline-offset: 4px; white-space: nowrap; }
+    .worlds { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 20px; }
+    .worlds a, .action { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #2a344a; border-radius: 9px; padding: 10px 15px; background: #111a2a; text-decoration: none; font-size: 14px; line-height: 1.4; }
+    .worlds a:hover, .action:hover { border-color: #6b7e9b; background: #1b263a; }
+    .worlds a[aria-current="true"] { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, #111a2a); }
+    .dot { width: 7px; height: 7px; border-radius: 2px; background: var(--swatch); }
+    .viewer { border: 1px solid #28334a; border-radius: 12px; overflow: hidden; background: #0c1321; box-shadow: 0 20px 70px #0004; }
+    .stage { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #080d19; }
+    /* The tall street's upper signs need the same room as a full desktop window. */
+    iframe { position: absolute; inset: 0 auto auto 0; width: 2160px; height: 1215px; transform-origin: top left; border: 0; }
+    .poster { display: block; width: 100%; height: 100%; object-fit: cover; }
+    [hidden] { display: none !important; }
+    .details { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 22px; border-top: 1px solid #28334a; }
+    h1 { font-size: 21px; line-height: 1.3; margin: 0; font-weight: 650; letter-spacing: -.3px; }
+    .description { margin: 6px 0 0; color: #aebbd0; font-size: 14px; line-height: 1.5; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; flex-shrink: 0; }
+    .download { color: #080d19; background: var(--accent); border-color: var(--accent); font-weight: 650; }
+    .download:hover { color: #080d19; background: var(--accent); border-color: #fff; }
+    .note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; margin: 18px 2px 0; color: #899ab4; font-size: 12px; line-height: 1.7; }
+    .note a { color: #b1c3de; text-underline-offset: 3px; }
+    @media (max-width: 700px) {
+      .shell { padding: 20px 14px; }
+      .masthead { align-items: flex-start; }
+      .brand { font-size: 16px; }
+      .repository { font-size: 12px; }
+      .tagline { max-width: 250px; font-size: 12px; }
+      .worlds { margin-top: 20px; gap: 7px; }
+      .worlds a { flex: 1 1 auto; padding: 10px 12px; font-size: 13px; }
+      .details { align-items: flex-start; flex-direction: column; padding: 17px; gap: 15px; }
+      .actions { width: 100%; }
+      .actions .action { flex: 1; padding-inline: 10px; font-size: 13px; }
+      .description { font-size: 13px; }
+      h1 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div>
+        <a class="brand" href="#corsair-cove">JH T3 Code Themes</a>
+        <p class="tagline">Dark worlds. Cute details. Room to unwind.</p>
+      </div>
+      <a class="repository" href="https://github.com/bigmoumou/JH-T3-Code-Themes">View on GitHub ↗</a>
+    </header>
+    <nav class="worlds" aria-label="Choose your world">
+      <a href="#corsair-cove" data-accent="#f0b44c" data-description="Firelight on the water. Secrets on the horizon." style="--swatch:#f0b44c"><span class="dot" aria-hidden="true"></span>Corsair Cove</a>
+      <a href="#neon-alley" data-accent="#ff5caa" data-description="Small wonders in a city that never sees the sun." style="--swatch:#ff5caa"><span class="dot" aria-hidden="true"></span>Neon Alley</a>
+      <a href="#frozen-tundra" data-accent="#a6c9ff" data-description="Cold skies. Warm company." style="--swatch:#a6c9ff"><span class="dot" aria-hidden="true"></span>Frozen Tundra</a>
+      <a href="#deep-sea" data-accent="#6bded4" data-description="A reef that keeps living while you work." style="--swatch:#6bded4"><span class="dot" aria-hidden="true"></span>Deep Sea</a>
+      <a href="#rainy-cafe" data-accent="#f5ad62" data-description="Rain outside. A quiet corner inside." style="--swatch:#f5ad62"><span class="dot" aria-hidden="true"></span>Rainy Cafe</a>
+    </nav>
+    <section class="viewer" aria-labelledby="world-name">
+      <div class="stage">
+        <iframe id="scene" title="Corsair Cove live demonstration" sandbox="allow-same-origin" tabindex="-1" hidden></iframe>
+        <img id="poster" class="poster" src="corsair-cove/preview.png" alt="Corsair Cove still preview" width="1600" height="900">
+      </div>
+      <div class="details">
+        <div aria-live="polite">
+          <h1 id="world-name">Corsair Cove</h1>
+          <p id="description" class="description">Firelight on the water. Secrets on the horizon.</p>
+        </div>
+        <div class="actions">
+          <button id="playback" class="action" type="button" aria-pressed="false">Play animation</button>
+          <a id="download" class="action download" href="corsair-cove/theme.json" download="corsair-cove.json">Download theme ↓</a>
+        </div>
+      </div>
+    </section>
+    <footer class="note">
+      <span>A live T3-style demo with a fictional conversation. Your own workspace stays yours.</span>
+      <a id="source" href="https://github.com/bigmoumou/JH-T3-Code-Themes/tree/main/corsair-cove">Theme source ↗</a>
+    </footer>
+    <noscript><p>Enable JavaScript to switch worlds. You can still <a href="https://github.com/bigmoumou/JH-T3-Code-Themes#choose-your-world">browse and download every theme on GitHub</a>.</p></noscript>
+  </main>
+  <script>
+    const links = [...document.querySelectorAll('.worlds a')];
+    const worlds = new Map(links.map(link => [link.hash.slice(1), link]));
+    const scene = document.querySelector('#scene');
+    const poster = document.querySelector('#poster');
+    const playback = document.querySelector('#playback');
+    const stage = document.querySelector('.stage');
+    let playing = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function showWorld() {
+      const requested = location.hash.slice(1);
+      const id = worlds.has(requested) ? requested : 'corsair-cove';
+      if (id !== requested) history.replaceState(null, '', `#${id}`);
+      const link = worlds.get(id);
+      const name = link.textContent.trim();
+      links.forEach(item => item.setAttribute('aria-current', String(item === link)));
+      document.documentElement.style.setProperty('--accent', link.dataset.accent);
+      document.querySelector('#world-name').textContent = name;
+      document.querySelector('#description').textContent = link.dataset.description;
+      document.querySelector('#source').href = `https://github.com/bigmoumou/JH-T3-Code-Themes/tree/main/${id}`;
+      const download = document.querySelector('#download');
+      download.href = `${id}/theme.json`;
+      download.download = `${id}.json`;
+      poster.src = `${id}/preview.png`;
+      poster.alt = `${name} still preview`;
+      scene.title = `${name} live demonstration`;
+      scene.src = playing ? `demo/${id}.html` : 'about:blank';
+      scene.hidden = !playing;
+      poster.hidden = playing;
+      playback.textContent = playing ? 'Pause animation' : 'Play animation';
+      playback.setAttribute('aria-pressed', String(playing));
+      document.title = `${name} · JH T3 Code Themes`;
+    }
+
+    playback.addEventListener('click', () => { playing = !playing; showWorld(); });
+    addEventListener('hashchange', showWorld);
+    new ResizeObserver(() => {
+      scene.style.transform = `scale(${stage.clientWidth / 2160})`;
+    }).observe(stage);
+    showWorld();
+  </script>
+</body>
+</html>
