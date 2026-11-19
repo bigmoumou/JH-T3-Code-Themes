@@ -9,7 +9,7 @@ import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).resolve().parent
-THEMES = ("corsair-cove", "neon-alley", "frozen-tundra", "deep-sea", "rainy-cafe")
+THEMES = ("corsair-cove", "neon-alley", "frozen-tundra", "deep-sea", "rainy-cafe", "pillars-of-kings")
 
 
 def build():
@@ -28,7 +28,8 @@ def build():
         assert mock.count("__CSS__") == 1, theme_id
         assert "</style" not in theme["css"].lower(), theme_id
         page = mock.replace("__CSS__", theme["css"])
-        title = html.escape(theme_id.replace("-", " ").title() + " · JH T3 Code Themes")
+        name = theme_id.replace("-", " ").title().replace(" Of ", " of ")
+        title = html.escape(name + " · JH T3 Code Themes")
         page = re.sub(r"<title>.*?</title>", f"<title>{title}</title>", page, count=1)
         assert theme["css"] in page, theme_id
         (output / f"{theme_id}.html").write_text(page, encoding="utf-8")

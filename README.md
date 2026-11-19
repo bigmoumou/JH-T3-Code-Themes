@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#corsair-cove"><img src="docs/banner.svg" alt="JH T3 Code Themes - Dark worlds. Cute details. Room to unwind." width="100%"></a>
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#corsair-cove"><img src="docs/banner.svg" alt="JH T3 Code Themes: six animated worlds in light and dark" width="100%"></a>
 </p>
 
 <p align="center">
   <strong>A cozy little escape for your workspace.</strong><br>
-  Dark, cute, animated pixel-art themes for T3 Code.<br>Comfortable on the eyes. A little space to unwind.
+  Animated pixel-art themes for T3 Code in light and dark.
 </p>
 
 <p align="center">
@@ -13,13 +13,14 @@
   <a href="#frozen-tundra">Frozen Tundra</a> ·
   <a href="#deep-sea">Deep Sea</a> ·
   <a href="#rainy-cafe">Rainy Cafe</a> ·
+  <a href="#pillars-of-kings">Pillars of Kings</a> ·
   <a href="#installation">Installation</a> ·
   <a href="#make-it-your-own">Source &amp; rebuilding</a>
 </p>
 
 <p align="center">
   <strong><a href="https://bigmoumou.github.io/JH-T3-Code-Themes/">Explore the live gallery →</a></strong><br>
-  <em>Select a picture to open its live scene, then switch between all five worlds.</em>
+  <em>Select a picture to open its live scene, then switch between all six worlds.</em>
 </p>
 
 <p align="center">
@@ -30,6 +31,7 @@
   <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#deep-sea"><img src="deep-sea/preview.gif" alt="Explore Deep Sea in the live gallery" width="420"></a>
   <br>
   <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#rainy-cafe"><img src="rainy-cafe/preview.gif" alt="Explore Rainy Cafe in the live gallery" width="420"></a>
+  <a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#pillars-of-kings"><img src="pillars-of-kings/preview.gif" alt="Explore Pillars of Kings in the live gallery" width="420"></a>
 </p>
 
 ## Choose your world
@@ -41,6 +43,7 @@
 | **[Frozen Tundra](#frozen-tundra)** | A luminous winter night | Auroras, snow, and animal companions | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/frozen-tundra/theme.json) |
 | **[Deep Sea](#deep-sea)** | A living underwater reef | Swimming fish and drifting jellyfish | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/deep-sea/theme.json) |
 | **[Rainy Cafe](#rainy-cafe)** | A Japanese cafe on a rainy night | Window droplets, little companions, and rising coffee steam | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json) |
+| **[Pillars of Kings](#pillars-of-kings)** | A sunlit river gorge guarded by stone kings | Drifting mist, swallows, and shimmering water | [JSON](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/pillars-of-kings/theme.json) |
 
 ## Corsair Cove
 
@@ -104,7 +107,19 @@
 
 **[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#rainy-cafe)** · [Download Rainy Cafe](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/rainy-cafe/theme.json) · [Source](rainy-cafe/) · [GIF recording](rainy-cafe/preview.gif) · [High-resolution still](rainy-cafe/preview.png)
 
-*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 32 seconds each of Corsair Cove and Neon Alley, 24 seconds of Frozen Tundra, 14 seconds of Deep Sea, and a 32-second excerpt of Rainy Cafe beginning 20 seconds into its companion cycle. They are recordings of offline T3-layout mock-ups with synthetic English conversations. Select any scene image for the live gallery; the GIF and still-image links remain available for recordings.*
+## Pillars of Kings
+
+**Two stone kings watch over a sunlit river gorge.**
+
+<a href="https://bigmoumou.github.io/JH-T3-Code-Themes/#pillars-of-kings"><img src="pillars-of-kings/preview.gif" alt="Pillars of Kings in motion: two stone guardians, river reflections, mist, and sunbeams" width="880"></a>
+
+- **Carved guardians.** Two colossal stone kings with raised palms and long-handled axes frame the river, inspired by the Argonath.
+- **Daylight in the gorge.** Thin clouds pass behind the statues. Sunbeams brighten and fade across the cliffs, with a waterfall on the right.
+- **Life on the river.** Swallows and a small boat give the statues scale. Distant cliffs reflect in the river, and patches of warm light shimmer near the right bank.
+
+**[Open live demo](https://bigmoumou.github.io/JH-T3-Code-Themes/#pillars-of-kings)** · [Download Pillars of Kings](https://raw.githubusercontent.com/bigmoumou/JH-T3-Code-Themes/main/pillars-of-kings/theme.json) · [Source](pillars-of-kings/) · [GIF recording](pillars-of-kings/preview.gif) · [High-resolution still](pillars-of-kings/preview.png)
+
+*All animated previews use an 880 × 495 frame at 10 fps. The looping GIFs show 32 seconds each of Corsair Cove, Neon Alley, and Pillars of Kings, 24 seconds of Frozen Tundra, 14 seconds of Deep Sea, and a 32-second excerpt of Rainy Cafe beginning 20 seconds into its companion cycle. They are recordings of offline T3-layout mock-ups with synthetic English conversations. Select any scene image for the live gallery.*
 
 ## Installation
 
@@ -137,11 +152,16 @@ Install the rainy-cafe theme from https://github.com/bigmoumou/JH-T3-Code-Themes
 Follow the repository's installation instructions and keep its CSS unchanged.
 ```
 
+```text
+Install the pillars-of-kings theme from https://github.com/bigmoumou/JH-T3-Code-Themes.
+Use light appearance and keep its CSS unchanged.
+```
+
 <details>
 <summary><strong>Installation steps for agents and manual setup</strong></summary>
 
 1. Read the local guide with `t3_theme_read` when available.
-2. Download `<id>/theme.json` from this repository. Preserve its CSS exactly; the themes are close to T3's 20,000-character limit.
+2. Download `<id>/theme.json` from this repository and preserve its CSS exactly. Pillars of Kings requires a T3 Code build that accepts at least 49,406 CSS characters.
 3. Save it as `<id>.json` in the **server environment's** themes directory. Write a temporary file and rename it into place.
 
    | Default environment | Themes directory |
@@ -151,7 +171,7 @@ Follow the repository's installation instructions and keep its CSS unchanged.
 
    With `T3CODE_HOME`, use its `userdata/themes/` directory. With a custom state directory, use its `themes/` subdirectory.
 
-4. Call `t3_theme_set` with the chosen `themeId` and `appearance: "dark"`. If the T3 CLI is available, use:
+4. Call `t3_theme_set` with the chosen `themeId` and the appearance in its JSON. Use `light` for Pillars of Kings and `dark` for the other five themes. If the T3 CLI is available, use:
 
    ```sh
    t3 theme set corsair-cove
@@ -163,9 +183,11 @@ Follow the repository's installation instructions and keep its CSS unchanged.
    t3 theme set deep-sea
    # or
    t3 theme set rainy-cafe
+   # or
+   t3 theme set pillars-of-kings
    ```
 
-5. Without activation tools, select the published theme under **Settings → Appearance** and choose dark appearance. Ask the user to confirm the result; publishing a theme is not a visual inspection.
+5. Without activation tools, select the theme and its matching light or dark appearance under **Settings → Appearance**.
 
 </details>
 
@@ -181,7 +203,7 @@ The custom theme files can stay in place for later use.
 
 ## Compatibility & practical notes
 
-- **Custom CSS required.** Developed and installed on Windows with T3 Code `0.1.10-nightly.20261114.4669`. macOS and Linux have not been verified.
+- **Custom CSS required.** The dark themes were developed on Windows with T3 Code `0.1.10-nightly.20261114.4669`. Pillars of Kings is a light theme tested on a newer T3 Code build with a larger CSS allowance.
 - **Desktop and web.** These environment themes do not apply to the native mobile app.
 - **Self-contained scenes.** Artwork is generated by the included Python source and embedded in the theme. No external images, fonts, or injected JavaScript are needed at runtime.
 - **Continuous animation.** CPU/GPU use is higher than with a static theme and varies with the machine, window size, and display scaling. Switch to a built-in theme for a static workspace.
@@ -192,30 +214,32 @@ The custom theme files can stay in place for later use.
 | File in each theme folder | Purpose |
 | :-- | :-- |
 | `art.py` | Draws pixel-art sprites and soft lighting layers. |
+| `paint.py` (Pillars of Kings) | Paints the distant gorge and river reflections. |
 | `build_theme.py` | Packs the artwork and builds the SVG/CSS animation. |
 | `theme.json` | Ready-to-install theme with embedded artwork. |
 | `preview.gif` | Looping animated demonstration shown above. |
 | `preview.png` | High-resolution English demonstration still. |
 
-Rebuilding requires Python 3, NumPy, and Pillow with WebP support:
+Rebuilding requires Python 3, NumPy, and Pillow with WebP support. Pillars of Kings also requires Pillow with AVIF support.
 
 ```sh
 python -m pip install numpy pillow
-cd neon-alley   # or: cd corsair-cove / cd frozen-tundra / cd deep-sea / cd rainy-cafe
+cd pillars-of-kings   # or another theme directory
 python build_theme.py
 ```
 
 The builder also writes `scene.svg`, `sheet.png`, and `mock.html` for local inspection. It must report **`problems: none`** before installation.
 
-| Theme | Published CSS length | T3 limit | Remaining |
+| Theme | Published CSS length | Build budget | Remaining |
 | :-- | --: | --: | --: |
 | Corsair Cove | 19,944 characters | 20,000 | 56 |
 | Neon Alley | 19,967 characters | 20,000 | 33 |
 | Frozen Tundra | 19,961 characters | 20,000 | 39 |
 | Deep Sea | 19,964 characters | 20,000 | 36 |
 | Rainy Cafe | 19,461 characters | 20,000 | 539 |
+| Pillars of Kings | 49,406 characters | 50,000 | 594 |
 
-Different Pillow/WebP versions can change the encoded size. Recheck the budget after rebuilding; the published JSON files are the reference artifacts.
+Different Pillow and image encoder versions can change the encoded size. Recheck the budget after rebuilding. The published JSON files are the reference artifacts.
 
 ### Update the live gallery
 
